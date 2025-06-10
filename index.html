@@ -1,310 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hani Abdel‑Warith</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
-  line-height: 1.8;
-  background: #ffffff;
-  color: #1a1a1a;
-  font-size: 17px;
-  font-weight: 400;
-}
-
-/* Minimal header approach */
-header {
-  border-bottom: 1px solid #e8e8e8;
-  padding: 25px 0;
-  background: #ffffff;
-}
-
-.header-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.site-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-decoration: none;
-  letter-spacing: -0.3px;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 35px;
-}
-
-nav a {
-  color: #666666;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  text-transform: lowercase;
-}
-
-nav a:hover,
-nav a.active {
-  color: #1a1a1a;
-}
-
-/* Main content area */
-.main-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 40px;
-}
-
-/* Profile section with side-by-side layout */
-.profile-section {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 50px;
-  margin-bottom: 60px;
-  align-items: start;
-}
-
-.profile-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 2px;
-  object-fit: cover;
-  filter: grayscale(20%);
-  transition: filter 0.3s ease;
-}
-
-.profile-image:hover {
-  filter: grayscale(0%);
-}
-
-.profile-content h1 {
-  font-size: 2.8rem;
-  font-weight: 300;
-  color: #1a1a1a;
-  margin-bottom: 15px;
-  line-height: 1.2;
-  letter-spacing: -1px;
-}
-
-.profile-content .title {
-  font-size: 16px;
-  color: #666666;
-  margin-bottom: 35px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.profile-content p {
-  margin-bottom: 25px;
-  color: #333333;
-  text-align: justify;
-  hyphens: auto;
-}
-
-.profile-content p:last-child {
-  margin-bottom: 0;
-}
-
-.profile-content em {
-  font-style: italic;
-  color: #555555;
-}
-
-.profile-content strong {
-  font-weight: 600;
-  color: #1a1a1a;
-}
-
-/* Contact bar */
-.contact-bar {
-  border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
-  margin-top: 50px;
-  text-align: center;
-}
-
-.contact-bar a {
-  color: #666666;
-  text-decoration: none;
-  font-size: 15px;
-  transition: color 0.2s ease;
-}
-
-.contact-bar a:hover {
-  color: #1a1a1a;
-  text-decoration: underline;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 0 25px;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  nav ul {
-    gap: 25px;
-  }
-  
-  .main-container {
-    padding: 40px 25px;
-  }
-  
-  .profile-section {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    text-align: center;
-  }
-  
-  .profile-image {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto;
-  }
-  
-  .profile-content h1 {
-    font-size: 2.2rem;
-  }
-  
-  .profile-content p {
-    text-align: left;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0 20px;
-  }
-  
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .main-container {
-    padding: 30px 20px;
-  }
-  
-  .profile-content h1 {
-    font-size: 1.9rem;
-  }
-  
-  .site-title {
-    font-size: 1.2rem;
-  }
-}
-
-/* Typography enhancements */
-p {
-  orphans: 3;
-  widows: 3;
-}
-
-/* Focus states */
-a:focus {
-  outline: 2px solid #1a1a1a;
-  outline-offset: 2px;
-}
-
-/* Selection styling */
-::selection {
-  background: #f0f0f0;
-  color: #1a1a1a;
-}
-
-/* Print styles */
-@media print {
-  header {
-    border-bottom: 2px solid #000;
-  }
-  
-  nav {
-    display: none;
-  }
-  
-  .contact-bar {
-    border-top: 1px solid #000;
-  }
-  
-  .profile-image {
-    filter: grayscale(100%);
-  }
-}
-
-/* Subtle fade-in animation */
-.profile-section {
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV – Hani Abdel-Warith</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
+            line-height: 1.8;
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        
+        /* Minimal header approach */
+        header {
+            border-bottom: 1px solid #e8e8e8;
+            padding: 25px 0;
+            background: #ffffff;
+        }
+        
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .site-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        nav a {
+            color: #666666;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            text-transform: lowercase;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: #1a1a1a;
+        }
+        
+        /* Main content area */
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        /* CV section */
+        .cv-section {
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cv-section h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+        
+        .cv-section .subtitle {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 50px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cv-description {
+            font-size: 17px;
+            color: #333333;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: justify;
+            hyphens: auto;
+        }
+        
+        .download-section {
+            margin-bottom: 30px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            color: #666666;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            padding: 12px 20px;
+            border: 1px solid #e8e8e8;
+            border-radius: 2px;
+            background: #ffffff;
+        }
+        
+        .download-btn:hover {
+            color: #1a1a1a;
+            border-color: #1a1a1a;
+        }
+        
+        .download-btn:focus {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 2px;
+        }
+        
+        .last-updated {
+            font-size: 15px;
+            color: #666666;
+            font-style: italic;
+            border-top: 1px solid #e8e8e8;
+            padding-top: 30px;
+            margin-top: 50px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 25px;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 25px;
+            }
+            
+            .main-container {
+                padding: 40px 25px;
+            }
+            
+            .cv-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cv-description {
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .main-container {
+                padding: 30px 20px;
+            }
+            
+            .cv-section h1 {
+                font-size: 1.9rem;
+            }
+            
+            .site-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Typography enhancements */
+        p {
+            orphans: 3;
+            widows: 3;
+        }
+        
+        /* Selection styling */
+        ::selection {
+            background: #f0f0f0;
+            color: #1a1a1a;
+        }
+        
+        /* Print styles */
+        @media print {
+            header {
+                border-bottom: 2px solid #000;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .last-updated {
+                border-top: 1px solid #000;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="header-container">
-    <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">about</a></li>
-        <li><a href="research.html">research</a></li>
-        <li><a href="teaching.html">teaching</a></li>
-        <li><a href="cv.html">cv</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">about</a></li>
+                    <li><a href="research.html">research</a></li>
+                    <li><a href="teaching.html">teaching</a></li>
+                    <li><a href="cv.html" class="active">cv</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<main class="main-container">
-  <section class="profile-section">
-    <img src="headshot.jpeg" alt="Hani Abdel‑Warith" class="profile-image">
-    
-    <div class="profile-content">
-      <h1>Hani Abdel‑Warith</h1>
-      <p class="title">Ph.D. Candidate, Politics, Princeton University</p>
-      
-      <p>I study state‑formation in developing societies. In my ongoing and completed research I show that postcolonial states supply education and mosques unevenly and strategically as part of broad logics of social control. These processes leave behind manufactured meritocracy, territorialized marginalization and enduring political divisions in nations under nondemocratic rule.</p>
-      
-      <p>My research draws on and advances regional expertise in the Middle East and North Africa, and a broad archival and historical engagement with the postcolonial world to study the relationship between contention, educational supply, status, and cleavage construction across those societies that decolonized after the Second World War.</p>
-      
-      <p>Current and published research projects have explored macro-level processes in Tunisia, Egypt, Algeria, and Turkey. I have published co‑authored work with H.E. Ceyhun on the relationship between political polarization and religious identification in Turkey <em>Mediterranean Politics</em>.</p>
-      
-      <p>In my dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, I demonstrate that leaders in Tunisia and Morocco withheld secondary education from regions linked to colonial‑era rebellions after independence.</p>
-      
-      <p><strong>Advisors:</strong> Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.</p>
-    </div>
-  </section>
-
-  <div class="contact-bar">
-    <a href="mailto:hwarith@princeton.edu">hwarith@princeton.edu</a>
-  </div>
-</main>
+    <main class="main-container">
+        <section class="cv-section">
+            <h1>Curriculum Vitae</h1>
+            <p class="subtitle">Academic Portfolio</p>
+            
+            <p class="cv-description">
+                Download my complete academic curriculum vitae to learn more about my educational background, research experience, publications, and professional accomplishments.
+            </p>
+            
+            <div class="download-section">
+                <a href="CV_Feb25_AbdelWarith.pdf" target="_blank" class="download-btn">
+                    Download Full CV (PDF)
+                </a>
+            </div>
+            
+            <p class="last-updated">Last updated: February 2025</p>
+        </section>
+    </main>
 </body>
 </html>
