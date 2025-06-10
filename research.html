@@ -1,4 +1,4 @@
-<style>
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +19,9 @@ header {
   border-bottom: 1px solid #e8e8e8;
   padding: 25px 0;
   background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-container {
@@ -42,6 +45,8 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
@@ -80,6 +85,7 @@ h1 {
   margin: 0 0 25px 30px;
   max-width: 200px;
   text-align: center;
+  clear: right;
 }
 
 .research-visual img {
@@ -87,6 +93,7 @@ h1 {
   height: auto;
   border: 1px solid #e8e8e8;
   margin-bottom: 8px;
+  display: block;
 }
 
 .image-caption {
@@ -116,6 +123,8 @@ h1 {
 /* Publication entries */
 .publication-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .publication-item {
@@ -154,9 +163,8 @@ h1 {
 
 .abstract {
   margin-top: 20px;
-  padding: 25px 0;
+  padding: 25px 0 25px 25px;
   border-left: 3px solid #e8e8e8;
-  padding-left: 25px;
   color: #333333;
   font-size: 16px;
   line-height: 1.7;
@@ -221,6 +229,8 @@ footer {
 
   nav ul {
     gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .main-container {
@@ -236,6 +246,7 @@ footer {
     float: none;
     margin: 0 auto 30px auto;
     max-width: 180px;
+    clear: both;
   }
 
   .research-section {
@@ -264,6 +275,7 @@ footer {
 
   h1 {
     font-size: 2rem;
+    letter-spacing: -1px;
   }
 
   .site-title {
@@ -281,10 +293,15 @@ footer {
   .abstract {
     padding-left: 15px;
   }
+
+  .research-section h2 {
+    font-size: 1.4rem;
+  }
 }
 
-/* Focus states */
-a:focus {
+/* Focus states for accessibility */
+a:focus,
+button:focus {
   outline: 2px solid #1a1a1a;
   outline-offset: 2px;
 }
@@ -315,6 +332,7 @@ a:focus {
 @media print {
   header {
     border-bottom: 2px solid #000;
+    position: static;
   }
 
   nav {
@@ -333,5 +351,28 @@ a:focus {
   .research-visual img {
     border: 1px solid #000;
   }
+
+  .research-section {
+    animation: none;
+    page-break-inside: avoid;
+  }
 }
-</style>
+
+/* Additional improvements for better browser compatibility */
+.header-container,
+.main-container {
+  width: 100%;
+}
+
+/* Ensure images don't overflow on very small screens */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
