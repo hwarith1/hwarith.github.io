@@ -80,9 +80,11 @@ h1 {
   line-height: 1.1;
 }
 
-/* Research image section */
+/* Research image section - repositioned and smaller */
 .research-visual {
-  margin-bottom: 80px;
+  float: right;
+  margin: 0 0 30px 40px;
+  max-width: 280px;
   text-align: center;
 }
 
@@ -90,21 +92,20 @@ h1 {
   max-width: 100%;
   height: auto;
   border: 1px solid #e8e8e8;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .image-caption {
-  font-size: 14px;
+  font-size: 13px;
   color: #666666;
   font-style: italic;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 /* Section styling */
 .research-section {
   margin-bottom: 70px;
+  overflow: hidden; /* Clear float */
 }
 
 .research-section h2 {
@@ -237,6 +238,12 @@ footer {
     margin-bottom: 40px;
   }
   
+  .research-visual {
+    float: none;
+    margin: 0 auto 40px auto;
+    max-width: 250px;
+  }
+  
   .research-section {
     margin-bottom: 50px;
   }
@@ -267,6 +274,10 @@ footer {
   
   .site-title {
     font-size: 1.2rem;
+  }
+  
+  .research-visual {
+    max-width: 200px;
   }
   
   .abstract {
@@ -316,6 +327,11 @@ a:focus {
     border-top: 1px solid #000;
   }
   
+  .research-visual {
+    float: none;
+    margin: 20px auto;
+  }
+  
   .research-visual img {
     border: 1px solid #000;
   }
@@ -340,15 +356,16 @@ a:focus {
 <main class="main-container">
   <h1>Research</h1>
   
-  <div class="research-visual">
-    <img src="ColonialTunis.png" alt="Map of Colonial Tunisia showing political Islam sites and primary schools">
-    <div class="image-caption">
-      Colonial-era sites of political Islam, Green and primary schools (1931)  in Red
-    </div>
-  </div>
-  
   <section class="research-section">
     <h2>published works</h2>
+    
+    <div class="research-visual">
+      <img src="ColonialTunis.png" alt="Map of Colonial Tunisia showing political Islam sites and primary schools">
+      <div class="image-caption">
+        Colonial-era sites of political Islam, Green and primary schools (1931) in Red
+      </div>
+    </div>
+    
     <ul class="publication-list">
       <li class="publication-item">
         <a href="https://www.tandfonline.com/doi/abs/10.1080/13629395.2025.2503586?casa_token=u4MROR5jUIMAAAAA:jrycbBrCe5GCMRzUlrblyfIyFFEHEV9-VPqtlwj5H3EFsu5Lbo_JVQdg45z6Z41VEbPdhAfvCpvW" target="_blank" class="publication-title">
