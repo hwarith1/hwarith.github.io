@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CV – Hani Abdel-Warith</title>
+</head>
+<body>
+  <h1>Curriculum Vitae</h1>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="research.html">Research</a> |
+    <a href="teaching.html">Teaching</a> |
+    <a href="cv.html">CV</a>
+  </nav>
+
+  <p><a href="cv.pdf">Click here to download my full CV (PDF)</a></p>
+</body>
+</html>
