@@ -1,67 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CV – Hani Abdel-Warith</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
-    }
-
-    nav {
-      background: #f4f4f4;
-      padding: 10px 20px;
-      text-align: center;
-    }
-
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    a {
-      color: #0056b3;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV – Hani Abdel-Warith</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            animation: fadeIn 0.8s ease-out;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(222, 226, 230, 0.3);
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        nav a {
+            display: inline-block;
+            margin: 0 25px;
+            color: #495057;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6c757d, #495057);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover {
+            color: #212529;
+            transform: translateY(-2px);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .active {
+            color: #212529 !important;
+            font-weight: 500;
+        }
+        
+        .active::after {
+            width: 100% !important;
+        }
+        
+        .main-content {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #212529;
+            letter-spacing: -2px;
+            animation: titleSlide 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes titleSlide {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cv-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            animation: cardFloat 0.8s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cv-card:hover::before {
+            left: 100%;
+        }
+        
+        @keyframes cardFloat {
+            from { opacity: 0; transform: translateY(40px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .cv-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: rgba(108, 117, 125, 0.2);
+        }
+        
+        .cv-description {
+            font-size: 1.3rem;
+            color: #495057;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #495057, #6c757d);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(73, 80, 87, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .download-btn:hover::before {
+            left: 100%;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(73, 80, 87, 0.4);
+            background: linear-gradient(135deg, #343a40, #495057);
+        }
+        
+        .download-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-btn:hover .download-icon {
+            transform: translateY(2px);
+        }
+        
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(108, 117, 125, 0.1), rgba(222, 226, 230, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .circle:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .circle:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        .last-updated {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            nav {
+                padding: 15px;
+            }
+            
+            nav a {
+                margin: 0 15px;
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+            
+            .cv-card {
+                padding: 30px 25px;
+                margin: 0 10px;
+            }
+            
+            .cv-description {
+                font-size: 1.1rem;
+            }
+            
+            .download-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+            
+            .main-content {
+                margin-top: 80px;
+            }
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #6c757d, #495057);
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1001;
+            transition: transform 0.1s ease;
+        }
+    </style>
 </head>
 <body>
-
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="research.html">Research</a> |
-    <a href="teaching.html">Teaching</a> |
-    <a href="cv.html">CV</a>
-  </nav>
-
-  <div class="container">
-    <h1>Curriculum Vitae</h1>
-    <p>
-      <a href="CV_Feb25_AbdelWarith.pdf" target="_blank">Click here to download my full CV (PDF)</a>
-    </p>
-  </div>
-
+    <div class="scroll-indicator"></div>
+    <div class="decorative-elements">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="research.html">Research</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="cv.html" class="active">CV</a>
+        </nav>
+        
+        <div class="main-content">
+            <h1>Curriculum Vitae</h1>
+            
+            <div class="cv-card">
+                <p class="cv-description">
+                    Download my complete academic curriculum vitae to learn more about my educational background, research experience, publications, and professional accomplishments.
+                </p>
+                
+                <a href="CV_Feb25_AbdelWarith.pdf" target="_blank" class="download-btn">
+                    <svg class="download-icon" viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        <path d="M12,11L16,15H13V19H11V15H8L12,11Z"/>
+                    </svg>
+                    Download Full CV (PDF)
+                </a>
+                
+                <p class="last-updated">Last updated: February 2025</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Smooth scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
+            document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrolled})`;
+        });
+        
+        // Add parallax effect to decorative circles
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            document.querySelectorAll('.circle').forEach((circle, index) => {
+                const speed = (index + 1) * 0.1;
+                circle.style.transform = `translateY(${parallax * speed}px)`;
+            });
+        });
+        
+        // Add click animation to download button
+        document.querySelector('.download-btn').addEventListener('click', function(e) {
+            this.style.transform = 'translateY(-3px) scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-3px) scale(1)';
+            }, 150);
+        });
+    </script>
 </body>
 </html>
