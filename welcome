@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hani Abdel-Warith</title>
+</head>
+<body>
+  <h1>Hani Abdel-Warith</h1>
+  <p>Ph.D. Candidate, Department of Politics, Princeton University</p>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="research.html">Research</a> |
+    <a href="teaching.html">Teaching</a> |
+    <a href="cv.html">CV</a>
+  </nav>
+
+  <h2>Welcome</h2>
+  <p>My research studies state-formation in developing societies, tracing the macro-level processes that drive variation in the postcolonial world. I draw on a regional expertise in the Middle East and North Africa, 
+  and a broad archival and historical engagement with the postcolonial world more broadly to study the relationship between contention, educational supply, status and cleavage construction.</p>
+
+  <p>Current and published research projects have explored Tunisia, Egypt, Algeria and Turkey. I have published co-authored work with H.E. Ceyhun at <em>Mediterranean Politics</em>.</p>
+
+  <p>In my dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, I demonstrate that leaders in Tunisia and Morocco withheld secondary education from regions linked to colonial era rebellions in Morocco and Tunisia after independence.</p>
+
+  <p>I am grateful to be advised by Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.</p>
+
+
+  <p>Contact: <a href="mailto:hwarith@princeton.edu"> hwarith@princeton.edu</a></p>
+</body>
+</html>
