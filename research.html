@@ -1,378 +1,131 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<div class="container research">Add commentMore actions
+  <h2>Research</h2>
 
-body {
-  font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
-  line-height: 1.8;
-  background: #ffffff;
-  color: #1a1a1a;
-  font-size: 17px;
-  font-weight: 400;
-}
+  <section class="published-works">
+    <h3>Published Works</h3>
+    <ul>
+      <li>
+        <a href="https://www.tandfonline.com/doi/abs/10.1080/13629395.2025.2503586?casa_token=u4MROR5jUIMAAAAA:jrycbBrCe5GCMRzUlrblyfIyFFEHEV9-VPqtlwj5H3EFsu5Lbo_JVQdg45z6Z41VEbPdhAfvCpvW" target="_blank">
+          H.E. Ceyhun and Hani Abdel‑Warith. “Religious Identification and Political Polarization in Turkey.” <em>Mediterranean Politics</em>, Forthcoming 2025.
+        </a>
+      </li>
+    </ul>
+  </section>
 
-/* Header styling */
-header {
-  border-bottom: 1px solid #e8e8e8;
-  padding: 25px 0;
-  background: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+  <section class="working-papers">
+    <h3>Working Papers</h3>
+    <ul>
+      <li><em>Rebellion and Educational Supply after Colonial Rule: Civic Licensing after Independence Tunisia [Job Market Paper]</em></li>
+      <li><em>Religious Infrastructure in Authoritarian Regimes: The Logic of Mosque Provision in MENA Contexts</em></li>
+    </ul>
+  </section>
 
-.header-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  <section class="works-in-preparation">
+    <h3>Selected Works in Preparation</h3>
+    <ul>
+      <li><em>Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj</em></li>
+      <li><em>FLN Politics and Postcolonial Development: Early Independence and Insecurity after Colonialism in Tunisia</em></li>
+    </ul>
+  </section>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research – Hani Abdel‑Warith</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-.site-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-decoration: none;
-  letter-spacing: -0.3px;
-}
+    nav {
+      background: #f4f4f4;
+      padding: 10px 20px;
+      text-align: center;
+    }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 35px;
-  margin: 0;
-  padding: 0;
-}
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
 
-nav a {
-  color: #666666;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  text-transform: lowercase;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-nav a:hover,
-nav a.active {
-  color: #1a1a1a;
-}
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-/* Main content */
-.main-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 40px;
-}
+    h2, h3 {
+      color: #222;
+    }
 
-h1 {
-  font-size: 3.2rem;
-  font-weight: 200;
-  color: #1a1a1a;
-  margin-bottom: 60px;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-}
+    ul {
+      padding-left: 20px;
+    }
 
-/* Research image section - repositioned and smaller */
-.research-visual {
-  float: right;
-  margin: 0 0 25px 30px;
-  max-width: 200px;
-  text-align: center;
-  clear: right;
-}
+    li {
+      margin-bottom: 10px;
+    }
 
-.research-visual img {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #e8e8e8;
-  margin-bottom: 8px;
-  display: block;
-}
+    .abstract {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #444;
+    }
 
-.image-caption {
-  font-size: 13px;
-  color: #666666;
-  font-style: italic;
-  line-height: 1.4;
-}
+    footer {
+      text-align: center;
+      margin: 40px 0;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
 
-/* Section styling */
-.research-section {
-  margin-bottom: 70px;
-  overflow: hidden;
-}
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="research.html">Research</a> |
+    <a href="teaching.html">Teaching</a> |
+    <a href="cv.html">CV</a>
+  </nav>
 
-.research-section h2 {
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #1a1a1a;
-  margin-bottom: 40px;
-  letter-spacing: -0.3px;
-  text-transform: lowercase;
-  border-bottom: 1px solid #e8e8e8;
-  padding-bottom: 15px;
-}
+  <div class="container research">
+    <h2>Research</h2>
 
-/* Publication entries */
-.publication-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    <section class="published-works">
+      <h3>Published Works</h3>
+      <ul>
+        <li>
+          <a href="https://www.tandfonline.com/doi/abs/10.1080/13629395.2025.2503586?casa_token=u4MROR5jUIMAAAAA:jrycbBrCe5GCMRzUlrblyfIyFFEHEV9-VPqtlwj5H3EFsu5Lbo_JVQdg45z6Z41VEbPdhAfvCpvW" target="_blank">
+            H.E. Ceyhun and Hani Abdel‑Warith. “Religious Identification and Political Polarization in Turkey.” <em>Mediterranean Politics</em>, Forthcoming 2025.
+          </a>
+          <div class="abstract">
+            <strong>Abstract:</strong> We study the relationship between political polarization along the Islamist-Secularist cleavage and religiosity in Turkey. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. While the effects of polarization are significant throughout Recep Tayyip Erdogan’s Justice and Development Party (the AKP) rule, the secularizing impacts of political division have accelerated since 2014. These effects are driven by partisanship: while Secularists have become more distanced from religion, their AKP counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of ‘Secularist’ and ‘Islamist’ identities. This study shows how political polarization can drive social change in developing societies, initiating a short-term secularization process.
+          </div>
+        </li>
+      </ul>
+    </section>
 
-.publication-item {
-  margin-bottom: 50px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #f5f5f5;
-}
+    <section class="working-papers">
+      <h3>Working Papers</h3>
+      <ul>
+        <li><em>Rebellion and Educational Supply after Colonial Rule: Civic Licensing after Independence Tunisia [Job Market Paper]</em></li>
+        <li><em>Religious Infrastructure in Authoritarian Regimes: The Logic of Mosque Provision in MENA Contexts</em></li>
+      </ul>
+    </section>
 
-.publication-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.publication-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-decoration: none;
-  line-height: 1.4;
-  display: block;
-  margin-bottom: 15px;
-  transition: color 0.2s ease;
-}
-
-.publication-title:hover {
-  color: #666666;
-}
-
-.publication-meta {
-  font-size: 15px;
-  color: #666666;
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.abstract {
-  margin-top: 20px;
-  padding: 25px 0 25px 25px;
-  border-left: 3px solid #e8e8e8;
-  color: #333333;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.abstract-label {
-  font-weight: 600;
-  color: #1a1a1a;
-  font-style: normal;
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Working papers and works in preparation */
-.working-paper-item,
-.work-in-prep-item {
-  margin-bottom: 25px;
-  color: #333333;
-  font-style: italic;
-  line-height: 1.6;
-}
-
-.working-paper-item:last-child,
-.work-in-prep-item:last-child {
-  margin-bottom: 0;
-}
-
-/* Job market paper highlight */
-.jmp-highlight {
-  font-weight: 600;
-  color: #1a1a1a;
-  font-style: normal;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-left: 10px;
-}
-
-/* Footer */
-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 40px 0;
-  text-align: center;
-  margin-top: 80px;
-}
-
-.footer-text {
-  font-size: 14px;
-  color: #666666;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .header-container {
-    padding: 0 25px;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  nav ul {
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .main-container {
-    padding: 40px 25px;
-  }
-
-  h1 {
-    font-size: 2.4rem;
-    margin-bottom: 40px;
-  }
-
-  .research-visual {
-    float: none;
-    margin: 0 auto 30px auto;
-    max-width: 180px;
-    clear: both;
-  }
-
-  .research-section {
-    margin-bottom: 50px;
-  }
-
-  .abstract {
-    padding-left: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0 20px;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .main-container {
-    padding: 30px 20px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    letter-spacing: -1px;
-  }
-
-  .site-title {
-    font-size: 1.2rem;
-  }
-
-  .research-visual {
-    max-width: 150px;
-  }
-
-  .research-visual img {
-    margin-bottom: 6px;
-  }
-
-  .abstract {
-    padding-left: 15px;
-  }
-
-  .research-section h2 {
-    font-size: 1.4rem;
-  }
-}
-
-/* Focus states for accessibility */
-a:focus,
-button:focus {
-  outline: 2px solid #1a1a1a;
-  outline-offset: 2px;
-}
-
-/* Selection styling */
-::selection {
-  background: #f0f0f0;
-  color: #1a1a1a;
-}
-
-/* Subtle animation */
-.research-section {
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Print styles */
-@media print {
-  header {
-    border-bottom: 2px solid #000;
-    position: static;
-  }
-
-  nav {
-    display: none;
-  }
-
-  footer {
-    border-top: 1px solid #000;
-  }
-
-  .research-visual {
-    float: none;
-    margin: 20px auto;
-  }
-
-  .research-visual img {
-    border: 1px solid #000;
-  }
-
-  .research-section {
-    animation: none;
-    page-break-inside: avoid;
-  }
-}
-
-/* Additional improvements for better browser compatibility */
-.header-container,
-.main-container {
-  width: 100%;
-}
-
-/* Ensure images don't overflow on very small screens */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Better text rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
+    <section class="works-in-preparation">
+      <h3>Selected Works in Preparation</h3>
+      <ul>
+        <li><em>Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj</em></li>
+        <li><em>FLN Politics and Postcoloni
