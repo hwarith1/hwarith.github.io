@@ -1,263 +1,321 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hani Abdel‑Warith</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hani Abdel‑Warith</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  line-height: 1.7;
-  background: #fafafa;
-  color: #2c3e50;
-  font-size: 16px;
-}
+    body {
+      font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
+      line-height: 1.8;
+      background: #ffffff;
+      color: #1a1a1a;
+      font-size: 17px;
+      font-weight: 400;
+    }
 
-nav {
-  background: #2c3e50;
-  padding: 15px 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+    header {
+      border-bottom: 1px solid #e8e8e8;
+      padding: 25px 0;
+      background: #ffffff;
+    }
 
-nav .nav-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0 20px;
-}
+    .header-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-nav a {
-  margin: 0 25px;
-  text-decoration: none;
-  color: #ecf0f1;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  padding: 8px 0;
-  border-bottom: 2px solid transparent;
-}
+    .site-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
 
-nav a:hover {
-  color: #3498db;
-  border-bottom-color: #3498db;
-}
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
 
-.container {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 0 30px;
-}
+    nav a {
+      color: #666666;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      text-transform: lowercase;
+    }
 
-.intro {
-  background: white;
-  border-radius: 8px;
-  padding: 50px 40px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  border-left: 4px solid #3498db;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+    nav a:hover,
+    nav a.active {
+      color: #1a1a1a;
+    }
 
-.intro img {
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 25px;
-  border: 4px solid #ecf0f1;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
+    .main-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
 
-.intro img:hover {
-  transform: scale(1.05);
-}
+    .intro-section {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 50px;
+    }
 
-.intro-text {
-  max-width: 700px;
-}
+    .profile-image {
+      flex-shrink: 0;
+    }
 
-.intro-text p:first-child {
-  color: #3498db;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+    .profile-image img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid #e8e8e8;
+    }
 
-.intro-text h2 {
-  color: #2c3e50;
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  font-weight: 300;
-  position: relative;
-}
+    .intro-content {
+      flex: 1;
+    }
 
-.intro-text h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #3498db, #2980b9);
-  border-radius: 2px;
-}
+    .intro-content .title {
+      color: #666666;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
 
-.intro-text p {
-  margin-bottom: 20px;
-  color: #34495e;
-  text-align: justify;
-  font-size: 1.05rem;
-}
+    .intro-content h1 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: #1a1a1a;
+      margin-bottom: 40px;
+      letter-spacing: -1px;
+      animation: fadeIn 0.6s ease-out;
+    }
 
-.intro-text em {
-  color: #7f8c8d;
-  font-style: italic;
-}
+    .intro-text {
+      font-size: 17px;
+      color: #333333;
+      margin-bottom: 30px;
+      text-align: justify;
+      hyphens: auto;
+    }
 
-.contact-section {
-  background: #34495e;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  border-radius: 8px;
-  margin-top: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+    .intro-text:last-child {
+      margin-bottom: 0;
+    }
 
-.contact-section a {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
+    .intro-text em {
+      color: #666666;
+      font-style: italic;
+    }
 
-.contact-section a:hover {
-  color: #5dade2;
-  text-decoration: underline;
-}
+    .contact-section {
+      border-top: 1px solid #e8e8e8;
+      padding-top: 40px;
+      margin-top: 50px;
+      text-align: center;
+    }
 
-/* Academic publication styling */
-.intro-text p:contains("Mediterranean Politics") {
-  font-style: italic;
-}
+    .contact-section p {
+      font-size: 15px;
+      color: #666666;
+    }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .container {
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-  
-  .intro {
-    padding: 30px 25px;
-  }
-  
-  .intro img {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .intro-text h2 {
-    font-size: 1.8rem;
-  }
-  
-  nav a {
-    margin: 0 15px;
-    font-size: 0.9rem;
-  }
-}
+    .contact-section a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
 
-@media (max-width: 480px) {
-  nav a {
-    display: block;
-    margin: 5px 0;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  
-  nav a:hover {
-    border-bottom-color: #3498db;
-  }
-  
-  .intro-text p {
-    text-align: left;
-  }
-}
+    .contact-section a:hover {
+      color: #333333;
+    }
 
-/* Subtle animations */
-.intro {
-  animation: fadeInUp 0.8s ease-out;
-}
+    footer {
+      border-top: 1px solid #e8e8e8;
+      padding: 40px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .footer-text {
+      font-size: 14px;
+      color: #666666;
+    }
 
-/* Typography enhancements */
-.intro-text p strong {
-  color: #2c3e50;
-}
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 25px;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-/* Focus states for accessibility */
-nav a:focus,
-.contact-section a:focus {
-  outline: 2px solid #3498db;
-  outline-offset: 2px;
-}
-</style>
+      nav ul {
+        gap: 25px;
+      }
+
+      .main-container {
+        padding: 40px 25px;
+      }
+
+      .intro-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .profile-image img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .intro-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .intro-text {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container {
+        padding: 0 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .main-container {
+        padding: 30px 20px;
+      }
+
+      .intro-content h1 {
+        font-size: 1.9rem;
+      }
+
+      .site-title {
+        font-size: 1.2rem;
+      }
+
+      .profile-image img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    a:focus {
+      outline: 2px solid #1a1a1a;
+      outline-offset: 2px;
+    }
+
+    ::selection {
+      background: #f0f0f0;
+      color: #1a1a1a;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media print {
+      header {
+        border-bottom: 2px solid #000;
+      }
+
+      nav {
+        display: none;
+      }
+
+      footer {
+        border-top: 1px solid #000;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nav-container">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="cv.html">CV</a>
-  </div>
-</nav>
-
-<div class="container">
-  <div class="intro">
-    <img src="headshot.jpeg" alt="Hani Abdel‑Warith headshot">
-    <div class="intro-text">
-      <p><strong>Ph.D. Candidate, Department of Politics, Princeton University</strong></p>
-      <h2>Welcome</h2>
-      <p>I study state‑formation in developing societies. In my ongoing and completed research I show that postcolonial states supply education and mosques unevenly and strategically as part of broad logics of social control. These processes leave behind manufactured meritocracy, territorialized marginalization and enduring political divisions in nations under nondemocratic rule.
-    
-       My research draws on and advances regional expertise in the Middle East and North Africa, and a broad archival and historical engagement with the postcolonial world to study the relationship between contention, educational supply, status, and cleavage construction across those societies that decolonized after the Second World War.</p>
-      <p>Current and published research projects have explored macro-level processes in Tunisia, Egypt, Algeria, and Turkey. I have published co‑authored work with H.E. Ceyhun on the relationship between political polarization and religious identification in Turkey <em>Mediterranean Politics</em>.</p>
-      <p>In my dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, I demonstrate that leaders in Tunisia and Morocco withheld secondary education from regions linked to colonial‑era rebellions after independence.</p>
-      <p>I am grateful to be advised by Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.</p>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">about</a></li>
+          <li><a href="research.html">research</a></li>
+          <li><a href="teaching.html">teaching</a></li>
+          <li><a href="cv.html">cv</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-  
-  <div class="contact-section">
-    <p>Contact: <a href="mailto:hwarith@princeton.edu">hwarith@princeton.edu</a></p>
-  </div>
-</div>
+  </header>
+
+  <main class="main-container">
+    <div class="intro-section">
+      <div class="profile-image">
+        <img src="headshot.jpeg" alt="Hani Abdel‑Warith headshot">
+      </div>
+      <div class="intro-content">
+        <div class="title">Ph.D. Candidate, Department of Politics, Princeton University</div>
+        <h1>Welcome</h1>
+      </div>
+    </div>
+
+    <div class="intro-text">
+      I study state‑formation in developing societies. In my ongoing and completed research I show that postcolonial states supply education and mosques unevenly and strategically as part of broad logics of social control. These processes leave behind manufactured meritocracy, territorialized marginalization and enduring political divisions in nations under nondemocratic rule.
+    </div>
+
+    <div class="intro-text">
+      My research draws on and advances regional expertise in the Middle East and North Africa, and a broad archival and historical engagement with the postcolonial world to study the relationship between contention, educational supply, status, and cleavage construction across those societies that decolonized after the Second World War.
+    </div>
+
+    <div class="intro-text">
+      Current and published research projects have explored macro-level processes in Tunisia, Egypt, Algeria, and Turkey. I have published co‑authored work with H.E. Ceyhun on the relationship between political polarization and religious identification in Turkey <em>Mediterranean Politics</em>.
+    </div>
+
+    <div class="intro-text">
+      In my dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, I demonstrate that leaders in Tunisia and Morocco withheld secondary education from regions linked to colonial‑era rebellions after independence.
+    </div>
+
+    <div class="intro-text">
+      I am grateful to be advised by Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.
+    </div>
+
+    <div class="contact-section">
+      <p>Contact: <a href="mailto:hwarith@princeton.edu">hwarith@princeton.edu</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
+  </footer>
 </body>
 </html>
