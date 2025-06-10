@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Teaching – Hani Abdel-Warith</title>
+</head>
+<body>
+  <h1>Teaching</h1>
+
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="research.html">Research</a> |
+    <a href="teaching.html">Teaching</a> |
+    <a href="cv.html">CV</a>
+  </nav>
+
+  <p>This page will summarize my teaching experience and responsibilities as a TA or instructor.</p>
+</body>
+</html>
