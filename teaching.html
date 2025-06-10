@@ -1,392 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching – Hani Abdel-Warith</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        nav {
-            text-align: center;
-            margin-bottom: 80px;
-            animation: slideDown 0.6s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        nav a {
-            display: inline-block;
-            margin: 0 25px;
-            color: #495057;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #6c757d, #495057);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        
-        nav a:hover {
-            color: #212529;
-            transform: translateY(-2px);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .active {
-            color: #212529 !important;
-            font-weight: 500;
-        }
-        
-        .active::after {
-            width: 100% !important;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #212529;
-            letter-spacing: -1px;
-            animation: titleSlide 0.8s ease-out 0.2s both;
-        }
-        
-        @keyframes titleSlide {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin: 60px 0 30px 0;
-            color: #343a40;
-            letter-spacing: -0.5px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #6c757d, transparent);
-        }
-        
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #495057;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .courses-list {
-            margin: 40px 0;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-        
-        .course-item {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .course-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border-color: rgba(108, 117, 125, 0.2);
-        }
-        
-        .course-code {
-            font-weight: 600;
-            color: #212529;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        
-        .course-details {
-            color: #6c757d;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        .stats-highlight {
-            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1), rgba(73, 80, 87, 0.05));
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            text-align: center;
-            border: 1px solid rgba(108, 117, 125, 0.1);
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        .rating {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #212529;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-        
-        .rating-label {
-            color: #6c757d;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .testimonials {
-            margin-top: 60px;
-            animation: fadeInUp 0.8s ease-out 0.5s both;
-        }
-        
-        blockquote {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border: none;
-            border-left: 4px solid #dee2e6;
-            padding: 30px 35px;
-            margin: 30px 0;
-            border-radius: 12px;
-            font-style: italic;
-            color: #495057;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        blockquote:hover {
-            transform: translateX(5px);
-            border-left-color: #6c757d;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        blockquote::before {
-            content: '"';
-            font-size: 4rem;
-            color: #dee2e6;
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-        
-        .course-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
-            color: #495057;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 10px;
-            border: 1px solid rgba(108, 117, 125, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-                margin-bottom: 40px;
-            }
-            
-            nav a {
-                margin: 0 15px;
-                font-size: 14px;
-            }
-            
-            .course-item {
-                padding: 20px;
-            }
-            
-            blockquote {
-                padding: 20px 25px;
-                margin: 20px 0;
-            }
-            
-            .rating {
-                font-size: 2rem;
-            }
-        }
-        
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #6c757d, #495057);
-            transform: scaleX(0);
-            transform-origin: left;
-            z-index: 1000;
-            transition: transform 0.1s ease;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Teaching – Hani Abdel‑Warith</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
+  line-height: 1.8;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/* Header styling */
+header {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 25px 0;
+  background: #ffffff;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+nav a {
+  color: #666666;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  text-transform: lowercase;
+}
+
+nav a:hover,
+nav a.active {
+  color: #1a1a1a;
+}
+
+/* Main content */
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 200;
+  color: #1a1a1a;
+  margin-bottom: 60px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+/* Section styling */
+.teaching-section {
+  margin-bottom: 70px;
+}
+
+.teaching-section h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+  letter-spacing: -0.3px;
+  text-transform: lowercase;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 15px;
+}
+
+/* Course list styling */
+.course-list {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.course-item {
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.course-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.course-code {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.course-details {
+  font-size: 15px;
+  color: #666666;
+  font-style: italic;
+}
+
+/* Stats highlight */
+.stats-highlight {
+  text-align: center;
+  padding: 40px 0;
+  margin: 50px 0;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.rating {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.rating-label {
+  font-size: 14px;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Testimonials styling */
+.testimonial-list {
+  list-style: none;
+}
+
+.testimonial-item {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.testimonial-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.testimonial-quote {
+  padding: 25px 0;
+  border-left: 3px solid #e8e8e8;
+  padding-left: 25px;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.course-tag {
+  display: inline-block;
+  font-size: 13px;
+  color: #666666;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Introduction text */
+.intro-text {
+  margin-bottom: 40px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333333;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 25px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  nav ul {
+    gap: 25px;
+  }
+  
+  .main-container {
+    padding: 40px 25px;
+  }
+  
+  h1 {
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+  }
+  
+  .teaching-section {
+    margin-bottom: 50px;
+  }
+  
+  .testimonial-quote {
+    padding-left: 20px;
+  }
+  
+  .rating {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 20px;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .main-container {
+    padding: 30px 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .site-title {
+    font-size: 1.2rem;
+  }
+  
+  .testimonial-quote {
+    padding-left: 15px;
+  }
+}
+
+/* Focus states */
+a:focus {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+/* Subtle animation */
+.teaching-section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles */
+@media print {
+  header {
+    border-bottom: 2px solid #000;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  footer {
+    border-top: 1px solid #000;
+  }
+}
+</style>
 </head>
 <body>
-    <div class="scroll-indicator"></div>
-    
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="research.html">Research</a>
-            <a href="teaching.html" class="active">Teaching</a>
-            <a href="cv.html">CV</a>
-        </nav>
-        
-        <h1>Teaching</h1>
-        
-        <p>
-            At Princeton, I have been privileged to serve as an Associate Instructor for courses in comparative politics. I have precepted for:
-        </p>
-        
-        <div class="courses-list">
-            <div class="course-item">
-                <div class="course-code">POL 230 – Introduction to Comparative Politics</div>
-                <div class="course-details">Professor Andreas Wiedemann • Spring 2023</div>
-            </div>
-            
-            <div class="course-item">
-                <div class="course-code">POL 366 – Politics in Africa</div>
-                <div class="course-details">Professor Jennifer Widner • Fall 2022</div>
-            </div>
-            
-            <div class="course-item">
-                <div class="course-code">POL 379 – Politics in Southeast Asia</div>
-                <div class="course-details">Professor Nick Kuipers • Spring 2025</div>
-            </div>
+<header>
+  <div class="header-container">
+    <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">about</a></li>
+        <li><a href="research.html">research</a></li>
+        <li><a href="teaching.html" class="active">teaching</a></li>
+        <li><a href="cv.html">cv</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-container">
+  <h1>Teaching</h1>
+  
+  <div class="intro-text">
+    At Princeton, I have been privileged to serve as an Associate Instructor for courses in comparative politics. I have precepted for:
+  </div>
+  
+  <section class="teaching-section">
+    <h2>courses</h2>
+    <ul class="course-list">
+      <li class="course-item">
+        <div class="course-code">POL 230 – Introduction to Comparative Politics</div>
+        <div class="course-details">Professor Andreas Wiedemann • Spring 2023</div>
+      </li>
+      
+      <li class="course-item">
+        <div class="course-code">POL 366 – Politics in Africa</div>
+        <div class="course-details">Professor Jennifer Widner • Fall 2022</div>
+      </li>
+      
+      <li class="course-item">
+        <div class="course-code">POL 379 – Politics in Southeast Asia</div>
+        <div class="course-details">Professor Nick Kuipers • Spring 2025</div>
+      </li>
+    </ul>
+  </section>
+  
+  <div class="intro-text">
+    Throughout these experiences, I have sought to bring my regional expertise and lived experience in North Africa into the classroom. I excel as both a lecturer and a precept facilitator, creating spaces that are dynamic, informed, and inclusive.
+  </div>
+  
+  <div class="stats-highlight">
+    <div class="rating">4.54/5</div>
+    <div class="rating-label">Average Rating Across 6 Sections</div>
+  </div>
+  
+  <div class="intro-text">
+    I am constantly looking for ways to grow as an instructor and scientific communicator.
+  </div>
+  
+  <section class="teaching-section">
+    <h2>selected student feedback</h2>
+    <ul class="testimonial-list">
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          Hani is amazing. I loved his precept—favorite precept by far at Princeton so far. Engaged everyone and helped me understand the material better.
         </div>
-        
-        <p>
-            Throughout these experiences, I have sought to bring my regional expertise and lived experience in North Africa into the classroom. I excel as both a lecturer and a precept facilitator, creating spaces that are dynamic, informed, and inclusive.
-        </p>
-        
-        <div class="stats-highlight">
-            <div class="rating">4.54/5</div>
-            <div class="rating-label">Average Rating Across 6 Sections</div>
+        <div class="course-tag">POL 366</div>
+      </li>
+      
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          Hani was wonderful – full of energy, rapidly gave an incredible depth on the content. Led very stimulating, challenging discussions.
         </div>
-        
-        <p>
-            I am constantly looking for ways to grow as an instructor and scientific communicator.
-        </p>
-        
-        <div class="testimonials">
-            <h2>Selected Student Feedback</h2>
-            
-            <blockquote>
-                Hani is amazing. I loved his precept—favorite precept by far at Princeton so far. Engaged everyone and helped me understand the material better.
-                <div class="course-tag">POL 366</div>
-            </blockquote>
-            
-            <blockquote>
-                Hani was wonderful – full of energy, rapidly gave an incredible depth on the content. Led very stimulating, challenging discussions.
-                <div class="course-tag">POL 366</div>
-            </blockquote>
-            
-            <blockquote>
-                Hani was a wonderful preceptor who was engaging during precept and incredibly accessible and helpful outside of precept.
-                <div class="course-tag">POL 230</div>
-            </blockquote>
-            
-            <blockquote>
-                Hani's style invites engagement. Really good. His enthusiasm made me look forward to the precept, and he always had really helpful and illuminating knowledge to share.
-                <div class="course-tag">POL 379</div>
-            </blockquote>
-            
-            <blockquote>
-                I've had very few classes where I actually wanted to attend the precepts each week, but I always felt that your precepts were full of information and insights.
-                <div class="course-tag">POL 379</div>
-            </blockquote>
-            
-            <blockquote>
-                Hani was always well prepared, the slides were content-packed, and I especially enjoyed how discussions were sometimes guided by student questions in discussion posts – made me feel a part of how the course was run!
-                <div class="course-tag">POL 379</div>
-            </blockquote>
+        <div class="course-tag">POL 366</div>
+      </li>
+      
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          Hani was a wonderful preceptor who was engaging during precept and incredibly accessible and helpful outside of precept.
         </div>
-    </div>
-    
-    <script>
-        // Smooth scroll indicator
-        window.addEventListener('scroll', () => {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-            document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrolled})`;
-        });
-        
-        // Add stagger animation to course items
-        const courseItems = document.querySelectorAll('.course-item');
-        courseItems.forEach((item, index) => {
-            item.style.animationDelay = `${0.1 * index}s`;
-            item.style.animation = 'fadeInUp 0.6s ease-out both';
-        });
-        
-        // Add stagger animation to testimonials
-        const testimonials = document.querySelectorAll('blockquote');
-        testimonials.forEach((testimonial, index) => {
-            testimonial.style.animationDelay = `${0.1 * index}s`;
-            testimonial.style.animation = 'fadeInUp 0.6s ease-out both';
-        });
-    </script>
+        <div class="course-tag">POL 230</div>
+      </li>
+      
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          Hani's style invites engagement. Really good. His enthusiasm made me look forward to the precept, and he always had really helpful and illuminating knowledge to share.
+        </div>
+        <div class="course-tag">POL 379</div>
+      </li>
+      
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          I've had very few classes where I actually wanted to attend the precepts each week, but I always felt that your precepts were full of information and insights.
+        </div>
+        <div class="course-tag">POL 379</div>
+      </li>
+      
+      <li class="testimonial-item">
+        <div class="testimonial-quote">
+          Hani was always well prepared, the slides were content-packed, and I especially enjoyed how discussions were sometimes guided by student questions in discussion posts – made me feel a part of how the course was run!
+        </div>
+        <div class="course-tag">POL 379</div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
+</footer>
 </body>
 </html>
