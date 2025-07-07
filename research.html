@@ -18,16 +18,21 @@
       color: #1a1a1a;
       font-size: 17px;
       font-weight: 400;
+      overflow-x: hidden;
     }
 
     header {
       border-bottom: 1px solid #e8e8e8;
       padding: 25px 0;
       background: #ffffff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .header-container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 40px;
       display: flex;
@@ -63,13 +68,79 @@
       color: #1a1a1a;
     }
 
-    .main-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 40px;
+    .main-layout {
+      display: flex;
+      margin-top: 80px;
+      min-height: calc(100vh - 80px);
     }
 
-    h1 {
+    .sidebar {
+      width: 280px;
+      background: #fafafa;
+      border-right: 1px solid #e8e8e8;
+      position: fixed;
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+      padding: 40px 0;
+      z-index: 100;
+    }
+
+    .sidebar-nav {
+      padding: 0 30px;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 25px;
+      letter-spacing: -0.3px;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-nav a {
+      color: #666666;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: block;
+      padding: 8px 15px;
+      border-radius: 6px;
+      border-left: 3px solid transparent;
+    }
+
+    .sidebar-nav a:hover {
+      background: #f0f0f0;
+      color: #1a1a1a;
+    }
+
+    .sidebar-nav a.active {
+      background: #e8f4f8;
+      color: #1a1a1a;
+      border-left-color: #3498db;
+    }
+
+    .content {
+      margin-left: 280px;
+      padding: 60px 40px;
+      max-width: 900px;
+      width: calc(100% - 280px);
+    }
+
+    .section {
+      margin-bottom: 80px;
+      scroll-margin-top: 100px;
+    }
+
+    .section h1 {
       font-size: 2.8rem;
       font-weight: 300;
       color: #1a1a1a;
@@ -78,11 +149,7 @@
       animation: fadeIn 0.6s ease-out;
     }
 
-    .research-section {
-      margin-bottom: 60px;
-    }
-
-    .research-section h2 {
+    .section h2 {
       font-size: 1.6rem;
       font-weight: 500;
       color: #1a1a1a;
@@ -93,6 +160,35 @@
       letter-spacing: -0.3px;
     }
 
+    .dissertation-highlight {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 4px solid #3498db;
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .dissertation-highlight h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .dissertation-highlight p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .research-focus {
+      background: #e8f5e8;
+      padding: 20px;
+      border-radius: 6px;
+      margin: 20px 0;
+      border-left: 4px solid #27ae60;
+    }
+
     .publication-list {
       list-style: none;
     }
@@ -101,6 +197,11 @@
       margin-bottom: 40px;
       padding-bottom: 35px;
       border-bottom: 1px solid #f5f5f5;
+      transition: transform 0.2s ease;
+    }
+
+    .publication-item:hover {
+      transform: translateX(5px);
     }
 
     .publication-item:last-child {
@@ -124,7 +225,7 @@
     }
 
     .publication-title a:hover {
-      color: #666666;
+      color: #3498db;
     }
 
     .publication-details {
@@ -171,18 +272,64 @@
       letter-spacing: 0.5px;
       font-weight: 500;
       margin-left: 10px;
+      background: #e8f4f8;
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
-    footer {
-      border-top: 1px solid #e8e8e8;
-      padding: 40px 0;
-      text-align: center;
-      margin-top: 80px;
+    .progress-indicator {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 4px;
+      height: calc(100vh - 100px);
+      background: #f0f0f0;
+      border-radius: 2px;
+      z-index: 50;
     }
 
-    .footer-text {
-      font-size: 14px;
-      color: #666666;
+    .progress-bar {
+      width: 100%;
+      background: #3498db;
+      border-radius: 2px;
+      transition: height 0.1s ease;
+      height: 0%;
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 100px;
+        left: 20px;
+        z-index: 200;
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .progress-indicator {
+        display: none;
+      }
     }
 
     @media (max-width: 768px) {
@@ -192,59 +339,18 @@
         gap: 20px;
       }
 
-      nav ul {
-        gap: 25px;
-      }
-
-      .main-container {
+      .content {
         padding: 40px 25px;
       }
 
-      h1 {
+      .section h1 {
         font-size: 2.2rem;
       }
 
-      .abstract-text {
-        padding-left: 20px;
+      .dissertation-highlight {
+        padding: 20px;
+        margin: 20px 0;
       }
-    }
-
-    @media (max-width: 480px) {
-      .header-container {
-        padding: 0 20px;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .main-container {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 1.9rem;
-      }
-
-      .site-title {
-        font-size: 1.2rem;
-      }
-
-      .abstract-text {
-        padding-left: 15px;
-      }
-    }
-
-    a:focus {
-      outline: 2px solid #1a1a1a;
-      outline-offset: 2px;
-    }
-
-    ::selection {
-      background: #f0f0f0;
-      color: #1a1a1a;
     }
 
     @keyframes fadeIn {
@@ -258,18 +364,8 @@
       }
     }
 
-    @media print {
-      header {
-        border-bottom: 2px solid #000;
-      }
-
-      nav {
-        display: none;
-      }
-
-      footer {
-        border-top: 1px solid #000;
-      }
+    .sidebar-toggle {
+      display: none;
     }
   </style>
 </head>
@@ -288,76 +384,187 @@
     </div>
   </header>
 
-  <main class="main-container">
-    <h1>Research</h1>
+  <div class="main-layout">
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-nav">
+        <div class="sidebar-title">Research Navigation</div>
+        <ul>
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#dissertation" class="nav-link">Dissertation</a></li>
+          <li><a href="#published" class="nav-link">Published Work</a></li>
+          <li><a href="#working-papers" class="nav-link">Working Papers</a></li>
+          <li><a href="#works-in-progress" class="nav-link">Works in Progress</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <section class="research-section">
-      <h2>Published Work</h2>
-      <ul class="publication-list">
-        <li class="publication-item">
-          <div class="publication-title">
-            <a href="https://www.tandfonline.com/doi/abs/10.1080/13629395.2025.2503586?casa_token=u4MROR5jUIMAAAAA:jrycbBrCe5GCMRzUlrblyfIyFFEHEV9-VPqtlwj5H3EFsu5Lbo_JVQdg45z6Z41VEbPdhAfvCpvW" target="_blank">
-              Religious Identification and Political Polarization in Turkey
-            </a>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰ Navigation</button>
+
+    <main class="content">
+      <section id="overview" class="section">
+        <h1>Research</h1>
+        <p>My research focuses on the intersection of political development, education policy, and social mobilization in post-colonial contexts. Through spatial analysis and historical data, I examine how colonial legacies continue to shape contemporary political dynamics across Africa, Asia, and the Middle East.</p>
+      </section>
+
+      <section id="dissertation" class="section">
+        <h2>Dissertation Research</h2>
+        <div class="dissertation-highlight">
+          <h3>Political Cleavage Formation After Independence in Africa and Asia</h3>
+          <p>My dissertation political cleavage formation after independence in Africa and Asia. I argue that in these contexts' secondary education, almost nonexistent under colonial rule, and scarcely provided thereafter, formed the basis of enduring political divisions.</p>
+          
+          <p>My empirical findings show that schools were withheld from regions with a history of support for anti-regime rebellions. As a consequence of this process, meritocracies were manufactured, upward mobility, social status, and regionalized marginalizations were assigned unevenly across national space.</p>
+          
+          <p>I map thousands of anti-colonial nationalist protests and then look to see whether specific protest waves can be assigned to specific mobilizing factions. I then leverage spatial patterns of protest as a measure of support for specific parties. In Tunisia, I provide a novel spatial measure of support for the Youssefist Revolt, repressed violently by French and Tunisian troops.</p>
+          
+          <p>I combine this protest data with schooling records in North African cases. In Tunisia, I obtained the complete record of schools (N=6027) built since 1881 and disaggregated by era of construction (Colonial-era, under Bourguiba, after Bourguiba). My results consistently suggest that secondary schools were withheld from Youssefist zones and that subsequently these deprived geographies became opportunity zones for subsequent challenging mobilization. Early protests during Tunisia's Arab Spring revolt were concentrated in Youssefist districts; since the 1980s, Islamists worked to build a base of Support in the Youssefist Center-South.</p>
+          
+          <div class="research-focus">
+            <p><strong>Current Research Expansion:</strong> In Morocco I show persisting inequalities emerging after the Rif War. I am collecting analogous data in Senegal, Cameroon, Algeria and expanding the scope of my investigation to critical colonial cases in French West Africa and across the MENA region.</p>
           </div>
-          <div class="publication-details">
-            H.E. Ceyhun and Hani Abdel‑Warith • Mediterranean Politics • Forthcoming 2025
-          </div>
-          <div class="abstract-section">
-            <div class="abstract-label">Abstract</div>
-            <div class="abstract-text">
-              We study the relationship between political polarization along the Islamist–Secularist cleavage and religiosity in Turkey. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. While the effects of polarization are significant throughout Recep Tayyip Erdogan's Justice and Development Party (the AKP) rule, the secularizing impacts of political division have accelerated since 2014. These effects are driven by partisanship: while Secularists have become more distanced from religion, their AKP counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of 'Secularist' and 'Islamist' identities. This study shows how political polarization can drive social change in developing societies, initiating a short-term secularization process.
+        </div>
+      </section>
+
+      <section id="published" class="section">
+        <h2>Published Work</h2>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="publication-title">
+              <a href="https://www.tandfonline.com/doi/abs/10.1080/13629395.2025.2503586?casa_token=u4MROR5jUIMAAAAA:jrycbBrCe5GCMRzUlrblyfIyFFEHEV9-VPqtlwj5H3EFsu5Lbo_JVQdg45z6Z41VEbPdhAfvCpvW" target="_blank">
+                Religious Identification and Political Polarization in Turkey
+              </a>
             </div>
-          </div>
-        </li>
-      </ul>
-    </section>
+            <div class="publication-details">
+              H.E. Ceyhun and Hani Abdel‑Warith • Mediterranean Politics • Forthcoming 2025
+            </div>
+            <div class="abstract-section">
+              <div class="abstract-label">Abstract</div>
+              <div class="abstract-text">
+                We study the relationship between political polarization along the Islamist–Secularist cleavage and religiosity in Turkey. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. While the effects of polarization are significant throughout Recep Tayyip Erdogan's Justice and Development Party (the AKP) rule, the secularizing impacts of political division have accelerated since 2014. These effects are driven by partisanship: while Secularists have become more distanced from religion, their AKP counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of 'Secularist' and 'Islamist' identities. This study shows how political polarization can drive social change in developing societies, initiating a short-term secularization process.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-    <section class="research-section">
-      <h2>Working Papers - Manuscript prepared for review.</h2>
-      <ul class="publication-list">
-        <li class="publication-item">
-          <div class="working-paper-title">
-            Rebellion and Educational Supply after Colonial Rule: Secondary Education and Civic Licensing in Postcolonial Tunisia
-            <span class="job-market-tag">Job Market Paper</span>
-          </div>
-        </li>
-        <li class="publication-item">
-          <div class="working-paper-title">
-            Religious Infrastructure in Authoritarian Regimes: The Logic of Mosque Provision in MENA Contexts
-          </div>
-        </li>
-      </ul>
-    </section>
+      <section id="working-papers" class="section">
+        <h2>Working Papers - Manuscript prepared for review</h2>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="working-paper-title">
+              Rebellion and Educational Supply after Colonial Rule: Secondary Education and Civic Licensing in Postcolonial Tunisia
+              <span class="job-market-tag">Job Market Paper</span>
+            </div>
+          </li>
+          <li class="publication-item">
+            <div class="working-paper-title">
+              Religious Infrastructure in Authoritarian Regimes: The Logic of Mosque Provision in MENA Contexts
+            </div>
+          </li>
+        </ul>
+      </section>
 
-    <section class="research-section">
-      <h2>Selected  Works in Preparation - Projects in Progress</h2>
-      <ul class="publication-list">
-        <li class="publication-item">
-          <div class="working-paper-title">
-            Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj (With Shourya Sen)
-          </div>
-        </li>
-        <li class="publication-item">
-          <div class="working-paper-title">
-           Cross-Border Militancy and Postcolonial Development: FLN Militancy and Development in Tunisia
-          </div>
-        </li>
-        </li>
-        <li class="publication-item">
-          <div class="working-paper-title">
-           The Long-Term Effects of Colonial-era Tribal Rebellion: Evidence from the High Atlas
-          </div>
-        </li>
-        <li class="publication-item">
-          <div class="working-paper-title">
-           Competing at the Root: How Local-Level Associational Competition Fuels Politics in Hybrid Regimes. (With Hussein. E. Ceyhun)
-          </div>
-        </li>
-  
+      <section id="works-in-progress" class="section">
+        <h2>Selected Works in Preparation - Projects in Progress</h2>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="working-paper-title">
+              Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj (With Shourya Sen)
+            </div>
+          </li>
+          <li class="publication-item">
+            <div class="working-paper-title">
+              Cross-Border Militancy and Postcolonial Development: FLN Militancy and Development in Tunisia
+            </div>
+          </li>
+          <li class="publication-item">
+            <div class="working-paper-title">
+              The Long-Term Effects of Colonial-era Tribal Rebellion: Evidence from the High Atlas
+            </div>
+          </li>
+          <li class="publication-item">
+            <div class="working-paper-title">
+              Competing at the Root: How Local-Level Associational Competition Fuels Politics in Hybrid Regimes. (With Hussein. E. Ceyhun)
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-  <footer>
-    <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
-  </footer>
+    <div class="progress-indicator">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const headerHeight = 80;
+          const targetPosition = targetElement.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update active navigation link and progress bar
+    function updateNavigation() {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const progressBar = document.getElementById('progressBar');
+      
+      const scrollPosition = window.scrollY + 120;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = (window.scrollY / documentHeight) * 100;
+      
+      progressBar.style.height = Math.min(scrollPercentage, 100) + '%';
+      
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Toggle sidebar on mobile
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', updateNavigation);
+    window.addEventListener('load', updateNavigation);
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+      const sidebar = document.getElementById('sidebar');
+      const toggle = document.querySelector('.sidebar-toggle');
+      
+      if (window.innerWidth <= 1024 && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+  </script>
 </body>
 </html>
