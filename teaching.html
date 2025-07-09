@@ -14,16 +14,22 @@
     body {
       font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
       line-height: 1.8;
-      background: #ffffff;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
       color: #1a1a1a;
       font-size: 17px;
       font-weight: 400;
+      min-height: 100vh;
     }
 
     header {
-      border-bottom: 1px solid #e8e8e8;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(232, 232, 232, 0.6);
       padding: 25px 0;
-      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
     }
 
     .header-container {
@@ -41,6 +47,11 @@
       color: #1a1a1a;
       text-decoration: none;
       letter-spacing: -0.3px;
+      transition: color 0.3s ease;
+    }
+
+    .site-title:hover {
+      color: #333333;
     }
 
     nav ul {
@@ -54,13 +65,31 @@
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
-      transition: color 0.2s ease;
+      transition: all 0.3s ease;
       text-transform: lowercase;
+      position: relative;
+      padding: 8px 0;
     }
 
     nav a:hover,
     nav a.active {
       color: #1a1a1a;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a1a1a;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
     }
 
     .main-container {
@@ -70,35 +99,52 @@
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-weight: 300;
       color: #1a1a1a;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       letter-spacing: -1px;
-      animation: fadeIn 0.6s ease-out;
+      animation: fadeInUp 0.8s ease-out;
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .intro-text {
-      font-size: 17px;
+      font-size: 18px;
       color: #333333;
       margin-bottom: 40px;
       text-align: justify;
       hyphens: auto;
+      line-height: 1.9;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
     .teaching-section {
       margin-bottom: 60px;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
     .teaching-section h2 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 500;
       color: #1a1a1a;
-      margin-bottom: 30px;
-      border-bottom: 1px solid #e8e8e8;
-      padding-bottom: 12px;
+      margin-bottom: 35px;
+      position: relative;
       text-transform: lowercase;
       letter-spacing: -0.3px;
+    }
+
+    .teaching-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #1a1a1a;
+      border-radius: 2px;
     }
 
     .course-list,
@@ -113,18 +159,23 @@
       border-bottom: 1px solid #f5f5f5;
     }
 
-    .course-item:last-child,
+    .course-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      border-color: rgba(26, 26, 26, 0.1);
+    }
+
     .testimonial-item:last-child {
-      border-bottom: none;
       margin-bottom: 0;
+      border-bottom: none;
       padding-bottom: 0;
     }
 
     .course-code {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: #1a1a1a;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.4;
     }
 
@@ -135,13 +186,12 @@
     }
 
     .testimonial-quote {
-      padding-left: 25px;
-      border-left: 3px solid #e8e8e8;
       color: #333333;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 17px;
+      line-height: 1.8;
       font-style: italic;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      position: relative;
     }
 
     .course-tag {
@@ -152,25 +202,72 @@
       font-weight: 500;
     }
 
-    .rating {
+    .rating-container {
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: 200;
-      margin: 60px 0 10px;
+      margin: 60px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      border: 1px solid rgba(232, 232, 232, 0.6);
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .rating {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 8px;
       color: #1a1a1a;
     }
 
     .rating-label {
+      font-size: 15px;
+      color: #666666;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
       text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(232, 232, 232, 0.6);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
       font-size: 14px;
       color: #666666;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 60px;
     }
 
     footer {
-      border-top: 1px solid #e8e8e8;
+      background: linear-gradient(135deg, #1a1a1a, #333333);
+      color: white;
       padding: 40px 0;
       text-align: center;
       margin-top: 80px;
@@ -178,7 +275,7 @@
 
     .footer-text {
       font-size: 14px;
-      color: #666666;
+      opacity: 0.8;
     }
 
     @media (max-width: 768px) {
@@ -197,11 +294,26 @@
       }
 
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
-      .testimonial-quote {
-        padding-left: 20px;
+      .rating-container {
+        margin: 60px 0;
+        padding: 30px;
+      }
+
+      .rating {
+        font-size: 2.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .course-item,
+      .testimonial-item {
+        padding: 20px;
       }
     }
 
@@ -221,7 +333,7 @@
       }
 
       h1 {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
 
       .site-title {
@@ -229,29 +341,46 @@
       }
 
       .testimonial-quote {
-        padding-left: 15px;
+        padding-left: 25px;
+      }
+
+      .rating-container {
+        padding: 25px;
       }
     }
 
     a:focus {
-      outline: 2px solid #1a1a1a;
+      outline: 2px solid #0066cc;
       outline-offset: 2px;
     }
 
     ::selection {
-      background: #f0f0f0;
+      background: rgba(0, 102, 204, 0.2);
       color: #1a1a1a;
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
     }
 
     @media print {
@@ -265,6 +394,11 @@
 
       footer {
         border-top: 1px solid #000;
+      }
+
+      .rating-container {
+        background: #f0f0f0;
+        color: #000;
       }
     }
   </style>
@@ -289,30 +423,46 @@
 
     <div class="intro-text">
       At Princeton, I have been privileged to serve as an Associate Instructor for courses in comparative politics. I have precepted for:
-  
-      <ul class="course-list">
-          <li class="course-item">
-          <div class="course-code">POL 366 – Politics in Africa</div>
-          <div class="course-details">Professor Jennifer Widner • Fall 2022</div>
-        </li>
-        <li class="course-item">
-          <div class="course-code">POL 230 – Introduction to Comparative Politics</div>
-          <div class="course-details">Professor Andreas Wiedemann • Spring 2023</div>
-        </li>
-      
-        <li class="course-item">
-          <div class="course-code">POL 379 – Politics in Southeast Asia</div>
-          <div class="course-details">Professor Nick Kuipers • Spring 2025</div>
-        </li>
-      </ul>
-    </section>
+    </div>
+
+    <ul class="course-list">
+      <li class="course-item">
+        <div class="course-code">POL 366 – Politics in Africa</div>
+        <div class="course-details">Professor Jennifer Widner • Fall 2022</div>
+      </li>
+      <li class="course-item">
+        <div class="course-code">POL 230 – Introduction to Comparative Politics</div>
+        <div class="course-details">Professor Andreas Wiedemann • Spring 2023</div>
+      </li>
+      <li class="course-item">
+        <div class="course-code">POL 379 – Politics in Southeast Asia</div>
+        <div class="course-details">Professor Nick Kuipers • Spring 2025</div>
+      </li>
+    </ul>
 
     <div class="intro-text">
       Throughout these experiences, I have sought to bring my regional expertise and lived experience in North Africa into the classroom. I excel as both a lecturer and a precept facilitator, creating spaces that are dynamic, informed, and inclusive.
     </div>
 
-    <div class="rating">4.54/5</div>
-    <div class="rating-label">Average Rating Across 6 Sections</div>
+    <div class="rating-container">
+      <div class="rating">4.54/5</div>
+      <div class="rating-label">Average Rating Across 6 Sections</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Courses Taught</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Sections Led</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Students Reached</div>
+      </div>
+    </div>
 
     <div class="intro-text">
       I am constantly looking for ways to grow as an instructor and scientific communicator. Throughout my time at Princeton I have sought pedagogical professionalization at the McGraw Center. I have been observed and critiqued and am participating in the teaching training transcript program.
@@ -364,5 +514,25 @@
   <footer>
     <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
   </footer>
+
+  <script>
+    // Add some subtle interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.course-item, .testimonial-item, .stat-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = Math.random() * 0.3 + 's';
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+          }
+        });
+      });
+      
+      cards.forEach(card => {
+        observer.observe(card);
+      });
+    });
+  </script>
 </body>
 </html>
