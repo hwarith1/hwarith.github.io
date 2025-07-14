@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hani F. Abdel‑Warith</title>
+  <title>Teaching – Hani F. Abdel‑Warith</title>
   <style>
     * {
       margin: 0;
@@ -12,24 +12,18 @@
     }
 
     body {
-      font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
+      font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond Premier Pro', 'Garamond', 'Times New Roman', serif;
       line-height: 1.8;
-      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      background: #ffffff;
       color: #1a1a1a;
       font-size: 17px;
       font-weight: 400;
-      min-height: 100vh;
     }
 
     header {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid rgba(232, 232, 232, 0.6);
+      border-bottom: 1px solid #e8e8e8;
       padding: 25px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      background: #ffffff;
     }
 
     .header-container {
@@ -47,11 +41,6 @@
       color: #1a1a1a;
       text-decoration: none;
       letter-spacing: -0.3px;
-      transition: color 0.3s ease;
-    }
-
-    .site-title:hover {
-      color: #333333;
     }
 
     nav ul {
@@ -65,31 +54,13 @@
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: color 0.2s ease;
       text-transform: lowercase;
-      position: relative;
-      padding: 8px 0;
     }
 
     nav a:hover,
     nav a.active {
       color: #1a1a1a;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #1a1a1a;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
     }
 
     .main-container {
@@ -98,116 +69,150 @@
       padding: 60px 40px;
     }
 
-    .intro-section {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      margin-bottom: 50px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .profile-image {
-      flex-shrink: 0;
-    }
-
-    .profile-image img {
-      width: 280px;
-      height: 320px;
-      object-fit: cover;
-      border: 1px solid rgba(232, 232, 232, 0.6);
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .profile-image img:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .intro-content {
-      flex: 1;
-    }
-
-    .intro-content .title {
-      color: #666666;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-
-    .intro-content h1 {
+    h1 {
       font-size: 2.8rem;
       font-weight: 300;
       color: #1a1a1a;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       letter-spacing: -1px;
-      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      animation: fadeIn 0.6s ease-out;
     }
 
     .intro-text {
+      font-size: 17px;
+      color: #333333;
       margin-bottom: 30px;
       text-align: justify;
       hyphens: auto;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
-    }
-
-    .intro-text p {
-      color: #333333;
-      margin-bottom: 15px;
       line-height: 1.8;
     }
 
-    .intro-text em {
+    .teaching-section {
+      margin-bottom: 60px;
+    }
+
+    .teaching-section h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 35px;
+      text-transform: lowercase;
+      letter-spacing: -0.3px;
+    }
+
+    .course-list,
+    .testimonial-list {
+      list-style: none;
+    }
+
+    .course-item,
+    .testimonial-item {
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .testimonial-item:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .course-code {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .course-details {
+      font-size: 15px;
       color: #666666;
       font-style: italic;
     }
 
-    .intro-text strong {
-      color: #1a1a1a;
-      font-weight: 600;
+    .testimonial-quote {
+      color: #333333;
+      font-size: 17px;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 15px;
     }
 
-    .contact-section {
-      border-top: 1px solid rgba(232, 232, 232, 0.6);
-      padding-top: 40px;
-      margin-top: 50px;
+    .course-tag {
+      font-size: 13px;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    .rating-container {
       text-align: center;
-      animation: fadeInUp 0.8s ease-out 0.4s both;
+      margin: 60px 0;
+      padding: 30px;
+      background: #f8f9fa;
+      border: 1px solid #e8e8e8;
     }
 
-    .contact-section p {
+    .rating {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+
+    .rating-label {
       font-size: 15px;
       color: #666666;
+      font-style: italic;
+      letter-spacing: 0.3px;
     }
 
-    .contact-section a {
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .stat-card {
+      background: #f8f9fa;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #e8e8e8;
+      transition: all 0.2s ease;
+    }
+
+    .stat-card:hover {
+      background: #f0f0f0;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 300;
       color: #1a1a1a;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
+      margin-bottom: 10px;
     }
 
-    .contact-section a:hover {
-      color: #333333;
+    .stat-label {
+      font-size: 14px;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     footer {
-      background: transparent;
-      color: #666666;
+      border-top: 1px solid #e8e8e8;
       padding: 40px 0;
       text-align: center;
       margin-top: 80px;
-      border-top: 1px solid rgba(232, 232, 232, 0.6);
     }
 
     .footer-text {
       font-size: 14px;
+      color: #666666;
     }
 
     @media (max-width: 768px) {
@@ -225,24 +230,27 @@
         padding: 40px 25px;
       }
 
-      .intro-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-      }
-
-      .profile-image img {
-        width: 220px;
-        height: 260px;
-      }
-
-      .intro-content h1 {
+      h1 {
         font-size: 2.2rem;
       }
 
-      .intro-text {
-        text-align: left;
+      .rating-container {
+        margin: 40px 0;
+        padding: 25px;
+      }
+
+      .rating {
+        font-size: 2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .course-item,
+      .testimonial-item {
+        padding-bottom: 20px;
       }
     }
 
@@ -261,7 +269,7 @@
         padding: 30px 20px;
       }
 
-      .intro-content h1 {
+      h1 {
         font-size: 1.9rem;
       }
 
@@ -269,9 +277,8 @@
         font-size: 1.2rem;
       }
 
-      .profile-image img {
-        width: 180px;
-        height: 220px;
+      .rating-container {
+        padding: 20px;
       }
     }
 
@@ -281,14 +288,14 @@
     }
 
     ::selection {
-      background: rgba(26, 26, 26, 0.2);
+      background: #f0f0f0;
       color: #1a1a1a;
     }
 
-    @keyframes fadeInUp {
+    @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(10px);
       }
       to {
         opacity: 1;
@@ -307,10 +314,17 @@
 
       footer {
         border-top: 1px solid #000;
-        background: transparent;
+      }
+
+      .rating-container {
+        background: #f0f0f0;
+        color: #000;
       }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -318,9 +332,9 @@
       <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
       <nav>
         <ul>
-          <li><a href="index.html" class="active">about</a></li>
+          <li><a href="index.html">about</a></li>
           <li><a href="research.html">research</a></li>
-          <li><a href="teaching.html">teaching</a></li>
+          <li><a href="teaching.html" class="active">teaching</a></li>
           <li><a href="cv.html">cv</a></li>
         </ul>
       </nav>
@@ -328,63 +342,100 @@
   </header>
 
   <main class="main-container">
-    <div class="intro-section">
-      <div class="profile-image">
-        <img src="headshot.jpeg" alt="Hani Abdel‑Warith headshot" />
+    <h1>Teaching</h1>
+
+    <div class="intro-text">
+      At Princeton, I have been privileged to serve as an Associate Instructor for courses in comparative politics. I have precepted for:
+    </div>
+
+    <ul class="course-list">
+      <li class="course-item">
+        <div class="course-code">POL 366 – Politics in Africa</div>
+        <div class="course-details">Professor Jennifer Widner • Fall 2022</div>
+      </li>
+      <li class="course-item">
+        <div class="course-code">POL 230 – Introduction to Comparative Politics</div>
+        <div class="course-details">Professor Andreas Wiedemann • Spring 2023</div>
+      </li>
+      <li class="course-item">
+        <div class="course-code">POL 379 – Politics in Southeast Asia</div>
+        <div class="course-details">Professor Nick Kuipers • Spring 2025</div>
+      </li>
+    </ul>
+
+    <div class="intro-text">
+      Throughout these experiences, I have sought to bring my regional expertise and lived experience in North Africa into the classroom. I excel as both a lecturer and a precept facilitator, creating spaces that are dynamic, informed, and inclusive.
+    </div>
+
+    <div class="rating-container">
+      <div class="rating">4.54/5</div>
+      <div class="rating-label">Average Rating Across 5 Sections</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Courses Taught</div>
       </div>
-      <div class="intro-content">
-        <div class="title">Hani Fernandes Abdel‑Warith &nbsp;|&nbsp; Ph.D. Candidate, Department of Politics, Princeton University</div>
-        <h1>Welcome</h1>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Sections Led</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Students Reached</div>
       </div>
     </div>
 
-    <!-- Research Interest Overview -->
     <div class="intro-text">
-      <p><strong>I am a scholar of comparative politics, studying state‑formation, contentious politics, and cleavage formation in Africa and Asia, with a primary regional focus on the Middle East and North Africa.</strong></p>
-      
-      <p>In my ongoing and completed research, I show that postcolonial states supply high schools and mosques unevenly and strategically to facilitate social control, with the goal of creating compliant and demobilized citizenries. These processes, prevalent in nations with histories of nondemocratic rule, leave behind manufactured meritocracies, territorialized marginalizations, and enduring political divisions.</p>
+      I am constantly looking for ways to grow as an instructor and scientific communicator. Throughout my time at Princeton I have sought pedagogical professionalization at the McGraw Center. I have been observed and critiqued and am participating in the teaching training transcript program.
     </div>
 
-     <!-- Dissertation -->
-    <div class="intro-text">
-      <p>My dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, explores the politicized supply of secondary education in postcolonial Morocco, Tunisia and West Africa.</p>
-    </div>
-
-    <!-- Advisers -->
-    <div class="intro-text">
-      <p>I am grateful to be advised by Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.</p>
-
-      <p><strong>I am on the 2025-2026 academic job market.</strong></p>
-    </div>
-
-    <!-- Contact -->
-    <div class="contact-section">
-      <p>Contact: <a href="mailto:hwarith@princeton.edu">hwarith@princeton.edu</a></p>
-    </div>
+    <section class="teaching-section">
+      <h2>selected student feedback</h2>
+      <ul class="testimonial-list">
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            Hani is amazing. I loved his precept—favorite precept by far at Princeton so far. Engaged everyone and helped me understand the material better.
+          </div>
+          <div class="course-tag">POL 366</div>
+        </li>
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            Hani was wonderful – full of energy, rapidly gave an incredible depth on the content. Led very stimulating, challenging discussions.
+          </div>
+          <div class="course-tag">POL 366</div>
+        </li>
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            Hani was a wonderful preceptor who was engaging during precept and incredibly accessible and helpful outside of precept.
+          </div>
+          <div class="course-tag">POL 230</div>
+        </li>
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            Hani's style invites engagement. Really good. His enthusiasm made me look forward to the precept, and he always had really helpful and illuminating knowledge to share.
+          </div>
+          <div class="course-tag">POL 379</div>
+        </li>
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            I've had very few classes where I actually wanted to attend the precepts each week, but I always felt that your precepts were full of information and insights.
+          </div>
+          <div class="course-tag">POL 379</div>
+        </li>
+        <li class="testimonial-item">
+          <div class="testimonial-quote">
+            Hani was always well prepared, the slides were content-packed, and I especially enjoyed how discussions were sometimes guided by student questions in discussion posts – made me feel a part of how the course was run!
+          </div>
+          <div class="course-tag">POL 379</div>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer>
-    <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
+    <div class="footer-text">© 2025 Hani F. Abdel‑Warith</div>
   </footer>
-
-  <script>
-    // Add some subtle interactivity
-    document.addEventListener('DOMContentLoaded', function() {
-      const elements = document.querySelectorAll('.intro-section, .intro-text, .contact-section');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationDelay = Math.random() * 0.2 + 's';
-            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-          }
-        });
-      });
-      
-      elements.forEach(element => {
-        observer.observe(element);
-      });
-    });
-  </script>
 </body>
 </html>
