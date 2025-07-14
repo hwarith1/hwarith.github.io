@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hani F. Abdel‑Warith</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond Premier Pro', 'Garamond', 'Times New Roman', serif;
+      font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
       line-height: 1.8;
-      background: #ffffff;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
       color: #1a1a1a;
       font-size: 17px;
       font-weight: 400;
+      min-height: 100vh;
     }
+
     header {
-      border-bottom: 1px solid #e8e8e8;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(232, 232, 232, 0.6);
       padding: 25px 0;
-      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
     }
+
     .header-container {
       max-width: 800px;
       margin: 0 auto;
@@ -28,38 +40,95 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .site-title {
       font-size: 1.4rem;
       font-weight: 600;
       color: #1a1a1a;
       text-decoration: none;
       letter-spacing: -0.3px;
+      transition: color 0.3s ease;
     }
-    nav ul { display: flex; list-style: none; gap: 35px; }
+
+    .site-title:hover {
+      color: #333333;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+
     nav a {
       color: #666666;
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
-      transition: color 0.2s ease;
+      transition: all 0.3s ease;
       text-transform: lowercase;
+      position: relative;
+      padding: 8px 0;
     }
-    nav a:hover, nav a.active { color: #1a1a1a; }
-    .main-container { max-width: 800px; margin: 0 auto; padding: 60px 40px; }
+
+    nav a:hover,
+    nav a.active {
+      color: #1a1a1a;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a1a1a;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .main-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
     .intro-section {
       display: flex;
       gap: 40px;
       align-items: flex-start;
       margin-bottom: 50px;
+      animation: fadeInUp 0.8s ease-out;
     }
-    .profile-image { flex-shrink: 0; }
+
+    .profile-image {
+      flex-shrink: 0;
+    }
+
     .profile-image img {
       width: 280px;
       height: 320px;
       object-fit: cover;
-      border: 1px solid #e8e8e8;
+      border: 1px solid rgba(232, 232, 232, 0.6);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .intro-content { flex: 1; }
+
+    .profile-image img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .intro-content {
+      flex: 1;
+    }
+
     .intro-content .title {
       color: #666666;
       font-size: 14px;
@@ -68,72 +137,185 @@
       margin-bottom: 15px;
       font-weight: 500;
     }
+
     .intro-content h1 {
       font-size: 2.8rem;
       font-weight: 300;
       color: #1a1a1a;
       margin-bottom: 40px;
       letter-spacing: -1px;
-      animation: fadeIn 0.6s ease-out;
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .intro-text { margin-bottom: 30px; text-align: justify; hyphens: auto; }
-    .intro-text p { color: #333333; margin-bottom: 15px; }
-    .intro-text em { color: #666666; font-style: italic; }
+
+    .intro-text {
+      margin-bottom: 30px;
+      text-align: justify;
+      hyphens: auto;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .intro-text p {
+      color: #333333;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .intro-text em {
+      color: #666666;
+      font-style: italic;
+    }
+
+    .intro-text strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
     .contact-section {
-      border-top: 1px solid #e8e8e8;
+      border-top: 1px solid rgba(232, 232, 232, 0.6);
       padding-top: 40px;
       margin-top: 50px;
       text-align: center;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
-    .contact-section p { font-size: 15px; color: #666666; }
+
+    .contact-section p {
+      font-size: 15px;
+      color: #666666;
+    }
+
     .contact-section a {
       color: #1a1a1a;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s ease;
+      transition: color 0.3s ease;
     }
-    .contact-section a:hover { color: #333333; }
+
+    .contact-section a:hover {
+      color: #333333;
+    }
+
     footer {
-      border-top: 1px solid #e8e8e8;
+      background: transparent;
+      color: #666666;
       padding: 40px 0;
       text-align: center;
       margin-top: 80px;
+      border-top: 1px solid rgba(232, 232, 232, 0.6);
     }
-    .footer-text { font-size: 14px; color: #666666; }
+
+    .footer-text {
+      font-size: 14px;
+    }
+
     @media (max-width: 768px) {
-      .header-container { padding: 0 25px; flex-direction: column; gap: 20px; }
-      nav ul { gap: 25px; }
-      .main-container { padding: 40px 25px; }
-      .intro-section { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
-      .profile-image img { width: 220px; height: 260px; }
-      .intro-content h1 { font-size: 2.2rem; }
-      .intro-text { text-align: left; }
+      .header-container {
+        padding: 0 25px;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav ul {
+        gap: 25px;
+      }
+
+      .main-container {
+        padding: 40px 25px;
+      }
+
+      .intro-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+      }
+
+      .profile-image img {
+        width: 220px;
+        height: 260px;
+      }
+
+      .intro-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .intro-text {
+        text-align: left;
+      }
     }
+
     @media (max-width: 480px) {
-      .header-container { padding: 0 20px; }
-      nav ul { flex-wrap: wrap; justify-content: center; gap: 20px; }
-      .main-container { padding: 30px 20px; }
-      .intro-content h1 { font-size: 1.9rem; }
-      .site-title { font-size: 1.2rem; }
-      .profile-image img { width: 180px; height: 220px; }
+      .header-container {
+        padding: 0 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .main-container {
+        padding: 30px 20px;
+      }
+
+      .intro-content h1 {
+        font-size: 1.9rem;
+      }
+
+      .site-title {
+        font-size: 1.2rem;
+      }
+
+      .profile-image img {
+        width: 180px;
+        height: 220px;
+      }
     }
-    a:focus { outline: 2px solid #1a1a1a; outline-offset: 2px; }
-    ::selection { background: #f0f0f0; color: #1a1a1a; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    a:focus {
+      outline: 2px solid #1a1a1a;
+      outline-offset: 2px;
+    }
+
+    ::selection {
+      background: rgba(26, 26, 26, 0.2);
+      color: #1a1a1a;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media print {
-      header { border-bottom: 2px solid #000; }
-      nav { display: none; }
-      footer { border-top: 1px solid #000; }
+      header {
+        border-bottom: 2px solid #000;
+      }
+
+      nav {
+        display: none;
+      }
+
+      footer {
+        border-top: 1px solid #000;
+        background: transparent;
+      }
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <a href="index.html" class="site-title">Hani F. Abdel‑Warith</a>
+      <a href="index.html" class="site-title">Hani Abdel‑Warith</a>
       <nav>
         <ul>
           <li><a href="index.html" class="active">about</a></li>
@@ -158,19 +340,21 @@
 
     <!-- Research Interest Overview -->
     <div class="intro-text">
-      <p><strong>I am a scholar of comparatve politics, studying state‑formation, contentious politics, and cleavage formation in Africa and Asia, with a primary regional focus on the Middle East and North Africa.</strong></p>
+      <p><strong>I am a scholar of comparative politics, studying state‑formation, contentious politics, and cleavage formation in Africa and Asia, with a primary regional focus on the Middle East and North Africa.</strong></p>
       
-      <p>In my ongoing and completed research, I show that postcolonial states supply high schools and mosques unevenly and strategically to facilitate social control, with the goal of creating compliant and demobilized citizenries. These processes, prevalent in nations with histories of nondemocratic rule, leave behind manufactured meritocracies, territorialized marginalizations, and, enduring political divisions.</p>
+      <p>In my ongoing and completed research, I show that postcolonial states supply high schools and mosques unevenly and strategically to facilitate social control, with the goal of creating compliant and demobilized citizenries. These processes, prevalent in nations with histories of nondemocratic rule, leave behind manufactured meritocracies, territorialized marginalizations, and enduring political divisions.</p>
     </div>
 
      <!-- Dissertation -->
     <div class="intro-text">
-      <p>My dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, explores the politicized supply of secondary education in postcolonial Morocco, Tunisia and West Africa.
+      <p>My dissertation, <em>Fellahin into Frenchmen: Social Control and Educational Supply in the Postcolonial Maghreb</em>, explores the politicized supply of secondary education in postcolonial Morocco, Tunisia and West Africa.</p>
+    </div>
+
     <!-- Advisers -->
     <div class="intro-text">
       <p>I am grateful to be advised by Amaney Jamal, Mark Beissinger, and Elizabeth Nugent.</p>
 
-        <p><strong>I am on the 2025-2026 academic job market.</strong></p>
+      <p><strong>I am on the 2025-2026 academic job market.</strong></p>
     </div>
 
     <!-- Contact -->
@@ -182,6 +366,25 @@
   <footer>
     <div class="footer-text">© 2025 Hani Abdel‑Warith</div>
   </footer>
+
+  <script>
+    // Add some subtle interactivity
+    document.addEventListener('DOMContentLoaded', function() {
+      const elements = document.querySelectorAll('.intro-section, .intro-text, .contact-section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = Math.random() * 0.2 + 's';
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+          }
+        });
+      });
+      
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
 </body>
 </html>
-
