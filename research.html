@@ -1,39 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research – Hani F. Abdel‑Warith</title>
-  <!-- Garamond Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Research – Hani F. Abdel-Warith</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
+    :root {
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --faint: #9a9a9a;
+      --hairline: #e8e8e8;
+      --wash: #faf9f7;
+      --accent: #8b6f47;
+    }
     body {
-      font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond Premier Pro', 'Garamond', 'Times New Roman', serif;
+      font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond', 'Times New Roman', serif;
       line-height: 1.8;
       background: #ffffff;
-      color: #1a1a1a;
+      color: var(--ink);
       font-size: 17px;
       font-weight: 400;
     }
-
     header {
-      border-bottom: 1px solid #e8e8e8;
+      border-bottom: 1px solid var(--hairline);
       padding: 25px 0;
       background: #ffffff;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
     }
-
     .header-container {
       max-width: 800px;
       margin: 0 auto;
@@ -42,255 +40,295 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .site-title {
       font-size: 1.4rem;
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--ink);
       text-decoration: none;
       letter-spacing: -0.3px;
     }
-
     nav ul {
       display: flex;
       list-style: none;
       gap: 35px;
     }
-
     nav a {
-      color: #666666;
+      color: var(--muted);
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
       transition: color 0.2s ease;
       text-transform: lowercase;
     }
-
     nav a:hover,
     nav a.active {
-      color: #1a1a1a;
+      color: var(--ink);
     }
-
+    nav a.active {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+    }
     .main-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 120px 40px 60px;
+      padding: 60px 40px;
+      animation: fadeIn 0.6s ease-out;
     }
-
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 50px;
+      letter-spacing: -1px;
+    }
+    .overview-text {
+      font-size: 17.5px;
+      color: #333333;
+      margin-bottom: 70px;
+      line-height: 1.85;
+    }
+    /* ---- Section Headers ---- */
     .section {
-      margin-bottom: 60px;
+      margin-bottom: 80px;
     }
-
     .section h2 {
-      font-size: 1.6rem;
+      font-size: 1.05rem;
       font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 30px;
-      border-bottom: 1px solid #e8e8e8;
-      padding-bottom: 12px;
-      text-transform: lowercase;
-      letter-spacing: -0.3px;
+      color: var(--muted);
+      margin-bottom: 35px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
     }
-
-    .dissertation-highlight {
+    /* ---- Dissertation Card ---- */
+    .dissertation-card {
+      background: var(--wash);
+      border: 1px solid var(--hairline);
+      padding: 40px;
+      margin-bottom: 50px;
+    }
+    .diss-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .diss-subtitle {
+      font-size: 15px;
+      color: var(--faint);
+      margin-bottom: 25px;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .diss-abstract-text {
+      font-size: 17px;
+      color: #333333;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .diss-abstract-text p {
+      margin-bottom: 18px;
+    }
+    .diss-abstract-text p:last-child {
+      margin-bottom: 0;
+    }
+    /* ---- Data Highlights ---- */
+    .data-highlights {
       background: #ffffff;
-      border: 1px solid #e8e8e8;
-      border-radius: 8px;
-      overflow: hidden;
-      margin: 25px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border-left: 3px solid var(--accent);
+      padding: 20px 25px;
+      margin: 30px 0;
     }
-
-    .highlight-tab {
-      background: #bb9457;
-      color: white;
-      padding: 8px 15px;
-      font-size: 14px;
-      font-weight: 500;
+    .data-highlights h4 {
+      font-size: 13px;
+      color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .highlight-content {
-      padding: 25px;
-    }
-
-    .research-highlights {
-      background: #f8f9fa;
-      border-radius: 6px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-
-    .research-highlights h4 {
-      font-size: 1rem;
+      letter-spacing: 1px;
       font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-size: 14px;
+      margin-bottom: 12px;
     }
-
-    .research-highlights ul {
+    .data-highlights ul {
       list-style: none;
-      margin: 0;
       padding: 0;
     }
-
-    .research-highlights li {
+    .data-highlights li {
+      font-size: 16px;
+      color: #333333;
       margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
-      font-size: 15px;
-      color: #333;
     }
-
-    .research-highlights li:before {
+    .data-highlights li:before {
       content: "•";
-      color: #bb9457;
+      color: var(--accent);
       font-weight: bold;
       position: absolute;
       left: 0;
     }
-
-    .dissertation-highlight h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 20px;
-    }
-
-    .dissertation-highlight p {
-      margin-bottom: 15px;
-      text-align: justify;
-    }
-
+    /* ---- Image Gallery ---- */
     .image-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 20px;
+      margin: 40px 0;
     }
-
-    .image-gallery img {
-      width: 100%;
-      border: 1px solid #e8e8e8;
-      border-radius: 4px;
-    }
-
-    .image-caption {
-      font-size: 14px;
-      color: #666666;
-      font-style: italic;
-      margin-top: 8px;
+    .gallery-item {
       text-align: center;
+    }
+    .gallery-placeholder {
+      background: #f0ede8;
+      aspect-ratio: 1;
+      border: 1px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--faint);
+      font-size: 14px;
+      font-style: italic;
+    }
+    .gallery-caption {
+      font-size: 14px;
+      color: var(--faint);
+      margin-top: 10px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    /* ---- Publications ---- */
+    .pub-item {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #f3f2f0;
+    }
+    .pub-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .pub-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
       line-height: 1.4;
     }
-
-    .publication-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .publication-item {
-      margin-bottom: 40px;
-    }
-
-    .publication-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1a1a1a;
-      margin-bottom: 8px;
-    }
-
-    .publication-details {
+    .pub-details {
       font-size: 15px;
-      color: #666666;
+      color: var(--faint);
       font-style: italic;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
-
-    .working-paper-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      font-style: italic;
-      margin-bottom: 8px;
-    }
-
-    .job-market-tag {
-      font-size: 13px;
-      color: #666666;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 500;
-      background: #e8f4f8;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 10px;
-    }
-
     .abstract-toggle {
       display: inline-block;
-      background: #f8f9fa;
-      border: 1px solid #e8e8e8;
-      border-radius: 4px;
-      padding: 4px 8px;
-      font-size: 12px;
-      color: #666666;
+      font-size: 13px;
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+      padding: 4px 10px;
+      border-radius: 3px;
       cursor: pointer;
       transition: all 0.2s ease;
+      margin-left: 8px;
     }
-
     .abstract-toggle:hover {
-      background: #e8e8e8;
-      color: #333333;
+      background: var(--ink);
+      color: #ffffff;
     }
-
     .abstract-content {
       display: none;
       margin-top: 15px;
-      padding-left: 20px;
-      border-left: 3px solid #e8e8e8;
-      color: #333333;
+      padding: 18px;
+      background: #f9f9f9;
+      border-left: 3px solid var(--accent);
       font-size: 16px;
-      line-height: 1.7;
-      text-align: justify;
+      line-height: 1.8;
+      color: #333333;
     }
-
     .abstract-content.show {
       display: block;
     }
-
-    .works-section {
-      margin-top: 60px;
+    .job-market-badge {
+      display: inline-block;
+      font-size: 12px;
+      color: #1e5a73;
+      background: #e8f4f8;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-
+    /* ---- Works in Progress ---- */
+    .works-list {
+      list-style: none;
+      padding: 0;
+    }
+    .works-list li {
+      font-size: 17px;
+      color: #333333;
+      padding: 14px 0;
+      border-bottom: 1px solid #f3f2f0;
+    }
+    .works-list li:last-child {
+      border-bottom: none;
+    }
+    footer {
+      border-top: 1px solid var(--hairline);
+      padding: 40px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+    .footer-text {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    a:focus {
+      outline: 2px solid var(--ink);
+      outline-offset: 2px;
+    }
+    ::selection {
+      background: #f0ede8;
+      color: var(--ink);
+    }
     @media (max-width: 768px) {
       .header-container {
         padding: 0 25px;
         flex-direction: column;
         gap: 20px;
       }
-      .main-container {
-        padding: 120px 25px 40px;
-      }
-      .section h2 {
-        font-size: 1.4rem;
-      }
+      nav ul { gap: 25px; }
+      .main-container { padding: 40px 25px; }
+      h1 { font-size: 2.2rem; }
+      .image-gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .header-container { padding: 0 20px; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .main-container { padding: 30px 20px; }
+      h1 { font-size: 1.9rem; }
+      .site-title { font-size: 1.2rem; }
+      .image-gallery { grid-template-columns: 1fr; }
+      .dissertation-card { padding: 25px; }
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="header-container">
-      <a href="index.html" class="site-title">Hani F. Abdel‑Warith</a>
+      <a href="index.html" class="site-title">Hani Abdel-Warith</a>
       <nav>
         <ul>
           <li><a href="index.html">about</a></li>
           <li><a href="research.html" class="active">research</a></li>
           <li><a href="teaching.html">teaching</a></li>
+          <li><a href="blog.html">After Empire</a></li>
           <li><a href="cv.html">cv</a></li>
         </ul>
       </nav>
@@ -298,189 +336,121 @@
   </header>
 
   <main class="main-container">
-    <section id="overview" class="section">
-      <h2>Research Overview</h2>
-      <p>My research focuses on the intersection of political development, education policy, and social mobilization in post-colonial contexts, with a regional emphasis on the Middle East and North Africa.</p>
+    <h1>Research</h1>
+
+    <p class="overview-text">
+      My research examines political development, state capacity, and identity formation in postcolonial contexts, with regional emphasis on the Middle East and North Africa. I investigate how autocratic states strategically allocate public goods—particularly education—to manage opposition and engineer political cleavages that persist across generations.
+    </p>
+
+    <!-- ---- DISSERTATION ---- -->
+    <section class="section">
+      <h2>Dissertation</h2>
+
+      <div class="dissertation-card">
+        <h3 class="diss-title">Civic Licensing: Education, Autocracy, and Political Identity in Postcolonial States</h3>
+        <div class="diss-subtitle">Doctoral dissertation</div>
+
+        <div class="diss-abstract-text">
+          <p>This dissertation tests the proposition that postcolonial governments in the Middle East and North Africa (MENA) and in Africa and Asia more broadly unevenly supplied secondary schooling to facilitate autocratic governance. Such regimes concentrated human capital, upward mobility, and social status in pro-regime and neutral areas. Conversely, autocracies withheld schools from historically oppositional areas, relatively undersupplying districts with histories of political rebellion against the incumbent regime.</p>
+
+          <p>I introduce and empirically investigate the process of <strong>'civic licensing'</strong>, a macro-level theory connecting anti-regime threats at independence to the allocation of secondary schools under autocracy and downstream political cleavages thereafter. Civic licenses are state-distributed credentials that serve as a prerequisite for access to a meritocratic stratum with associated club benefits and status identity. In postcolonial states, I posit that secondary education functioned as a civic license, as government policy guaranteed employment to college graduates. The politicized provision of secondary education under postcolonial autocracy leaves behind spatially divergent status differentials, political identities, and a political cleavage structure across provisioned and punished zones.</p>
+        </div>
+
+        <div class="data-highlights">
+          <h4>Empirical Scope</h4>
+          <ul>
+            <li>6,047 geolocated schools in Tunisia (1880–2024)</li>
+            <li>1,143 nationalist contentious events in Tunisia (1950–1956)</li>
+            <li>1,165 nationalist contentious events in Morocco (1950–1956)</li>
+            <li>Nationally representative survey data from Tunisia (N = 1,004)</li>
+            <li>Comparative evidence from Senegal, Cameroon, and other MENA regimes</li>
+          </ul>
+        </div>
+
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <div class="gallery-placeholder">[Figure 1]</div>
+            <div class="gallery-caption">Colonial-era school distribution and political movements</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">[Figure 2]</div>
+            <div class="gallery-caption">Postcolonial school supply: provisioned vs. undersupplied regions</div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">[Figure 3]</div>
+            <div class="gallery-caption">Electoral and protest patterns in the postcolonial Maghreb</div>
+          </div>
+        </div>
+
+        <div class="diss-abstract-text" style="margin-top: 30px; font-size: 16px; color: var(--faint);">
+          <p>I reveal a robust negative association between anti-regime threat at independence and educational provision thereafter. Testing individual-level implications, I show that educational provision patterns at independence drive variation in attitudes, electoral behavior, and protest participation in the postcolonial Maghreb. The study highlights scarce education supplied at independence as an understudied driver of political identity and status formation in postcolonial states.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="dissertation" class="section">
-      <h2>Dissertation Research</h2>
-      <div class="dissertation-highlight">
-        <div class="highlight-tab">Dissertation Research</div>
-        <div class="highlight-content">
-          <h3>Political Cleavage Formation After Independence in Africa and Asia</h3>
-          <p>I argue that secondary education, nearly absent under colonial rule and strategically withheld thereafter, constituted the basis of enduring political divisions. Using geocoded protest events and school-construction records, I show how regimes manipulated educational supply to engineer compliant citizenries and reinforce territorial marginalizations.</p>
-          
-          <div class="research-highlights">
-            <h4>Empirical Highlights</h4>
-            <ul>
-              <li>6,046 schools (1881-2024) in Tunisia at the primary and secondary level</li>
-              <li>1,143 contentious events in Tunisia</li>
-              <li>Contentious event data in Morocco, Algeria, Senegal & Cameroon</li>
-            </ul>
-          </div>
+    <!-- ---- PUBLICATIONS ---- -->
+    <section class="section">
+      <h2>Publications</h2>
 
-   <div class="image-gallery">
-  <div>
-    <img src="ColonialMap.png" alt="Colonial-era school distribution">
-    <div class="image-caption">Colonial era schooling (red) and political Islam (green)</div>
-  </div>
-  <div>
-    <img src="Map2019.png" alt="2019 over/undersupply map">
-    <div class="image-caption">2019 Election vs. Youssefist events: Challenging Islamist and Nasserist candidates thrive in Youssefist zones</div>
-  </div>
-  <div>
-    <img src="MapACLED.png" alt="ACLED protest overlay">
-    <div class="image-caption">ACLED Data: 2011 protest locations, Youssefist districts where 2011 revolt is observed are indicated in red</div>
-  </div>
-</div>
-
-    <section id="published" class="works-section">
-      <h2>Published Work</h2>
-      <ul class="publication-list">
-        <li class="publication-item">
-          <div class="publication-title">Religious Identification and Political Polarization in Turkey
-            <span class="abstract-toggle" onclick="toggleAbstract('abstract-turkey')">abstract</span>
-          </div>
-          <div class="publication-details">H.E. Ceyhun and Hani Abdel‑Warith • Mediterranean Politics • Forthcoming 2025</div>
-          <div id="abstract-turkey" class="abstract-content">
-            We study the relationship between political polarization along the Islamist-Secularist cleavage and religiosity in Turkey. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. While the effects of polarization are significant throughout Recep Tayyip Erdogan's Justice and Development Party (the AKP) rule, the secularizing impacts of political division have accelerated since 2014. These effects are driven by partisanship: while Secularists have become more distanced from religion, their AKP counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of 'Secularist' and 'Islamist' identities. This study shows how political polarization can drive social change in developing societies, initiating a short term secularization process.
-          </div>
-        </li>
-      </ul>
-    </section>
-<section id="working-papers" class="works-section">
-      <h2>Prepared Manuscripts</h2>
-      <p class="manuscript-note"><em>These manuscripts are prepared and available upon request.</em></p>
-      <ul class="publication-list">
-        <li class="publication-item">
-          <div class="working-paper-title">Rebellion and Educational Supply after Colonial Rule: Secondary Education and Civic Licensing in Postcolonial Tunisia
-            <span class="job-market-tag">Job Market Paper</span>
-            <span class="abstract-toggle" onclick="toggleAbstract('abstract-jmp')">abstract</span>
-          </div>
-          <div id="abstract-jmp" class="abstract-content">
-            How do political cleavages form in postcolonial autocracies? I argue that after independence, nondemocratic governments in Africa and Asia leveraged scarce secondary school provision as a tool facilitating regime survival and social control (Svolik 2012; Mattingly 2021). In these states, leaders widely established secondary education as a prerequisite for political participation; selectively supplied schooling became the gateway to access employment within the government administration, to a politically manufactured meritocracy, and to upward mobility more generally. Governments formed territorialized threat perceptions, modally in places with a history of opposition mobilization, and withheld schools from these zones. States thus provided secondary schooling selectively and unevenly across space, concentrating such development in non-threatening and loyalist zones and withholding schools from restive zones. I call this macro-level strategy of uneven reward and punishment, 'civic licensing'. I empirically substantiate this argument using rich evidence from Tunisia. There, experts widely expected the nation's 'peaceful' anticolonial history and budgetary emphasis on education to be latent factors supporting eventual democratization. Instead, the nation's post-2011 transition to Democracy failed. I empirically demonstrate that the Youssefist rebellion (1955-1956) became an enduring basis of political marginalization. Analyses show that Youssefist regions have become critical sites of political entrepreneurship and mobilization, explaining patterns of cleavage-formation and mass mobilization. Youssefist districts are more likely to participate in the 2011 revolution and are more supportive of Islamist Candidates after transitions. A wealth of new data facilitates this district-level analysis including: (1) A spatially disaggregated dataset specifying the locations of the Youssefist rebellion and nationalist contention more broadly (N=1143, 1950-1956) (2) the exhaustive set of primary and secondary schools constructed in Tunisia since the beginning of French protectorate rule (1880-2024) provided by Tunisia's Ministry of education.
-          </div>
-        </li>
-      </ul>
+      <div class="pub-item">
+        <div class="pub-title">
+          Secularization in the Minaret's Shadow: Group Identity and Religious Identity in the Contemporary MENA Region
+          <span class="abstract-toggle" onclick="toggleAbstract('abstract-minaret')">abstract</span>
+        </div>
+        <div class="pub-details">Hüseyin E. Ceyhun and Hani Abdel-Warith • Mediterranean Politics • 2025</div>
+        <div id="abstract-minaret" class="abstract-content">
+          We study the relationship between political polarization along the Islamist-Secularist cleavage and religiosity in the contemporary MENA region. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. These effects are driven by partisanship: while Secularists have become more distanced from religion, their Islamist counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of 'Secularist' and 'Islamist' identities. This study shows how political polarization can drive social change in developing societies, initiating a secularization process driven by identity conflict rather than modernization.
+        </div>
+      </div>
     </section>
 
-<style>
-.manuscript-note {
-  margin-bottom: 20px;
-  color: #666;
-  font-size: 0.95em;
-}
+    <!-- ---- WORKING PAPERS ---- -->
+    <section class="section">
+      <h2>Working Papers</h2>
 
-.authors {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5px;
-  font-style: italic;
-}
+      <div class="pub-item">
+        <div class="pub-title">
+          Rebellion and Educational Supply after Colonial Rule: Secondary Education and Civic Licensing in Postcolonial Tunisia
+          <span class="abstract-toggle" onclick="toggleAbstract('abstract-civic')">abstract</span>
+        </div>
+        <div id="abstract-civic" class="abstract-content">
+          How do political cleavages form in postcolonial autocracies? I argue that after independence, nondemocratic governments in Africa and Asia leveraged scarce secondary school provision as a tool facilitating regime survival and social control. In these states, leaders widely established secondary education as a prerequisite for political participation; selectively supplied schooling became the gateway to access employment within the government administration, to a politically manufactured meritocracy, and to upward mobility more generally. Governments formed territorialized threat perceptions, modally in places with a history of opposition mobilization, and withheld schools from these zones. I call this macro-level strategy of uneven reward and punishment, 'civic licensing'. Using rich evidence from Tunisia, I empirically substantiate this argument with spatially disaggregated datasets of nationalist contentious events (N=1,143, 1950-1956) and school construction records since 1880. I show that Youssefist regions became enduring sites of political entrepreneurship and mobilization, explaining patterns of cleavage-formation and mass mobilization in the postcolonial era.
+        </div>
+      </div>
 
-.working-paper-title {
-  font-weight: 500;
-  margin-bottom: 5px;
-}
+      <div class="pub-item">
+        <div class="pub-title">Anatomy of Religious Infrastructure in Authoritarian Regimes</div>
+        <div class="pub-details">Gordon Arsenoff, Amaney Jamal, Elizabeth Nugent, Hüseyin E. Ceyhun, and Hani Abdel-Warith</div>
+      </div>
+    </section>
 
-.publication-list {
-  list-style: none;
-  padding: 0;
-}
+    <!-- ---- SELECTED WORKS IN PREPARATION ---- -->
+    <section class="section">
+      <h2>Selected Works in Preparation</h2>
 
-.publication-item {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
-}
-
-.publication-item:last-child {
-  border-bottom: none;
-}
-
-.job-market-tag {
-  background-color: #e8f4f8;
-  color: #1e5a73;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.8em;
-  font-weight: 500;
-  margin-left: 10px;
-}
-
-.abstract-toggle {
-  color: #0066cc;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.85em;
-  margin-left: 10px;
-  padding: 3px 8px;
-  border: 1px solid #0066cc;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  display: inline-block;
-}
-
-.abstract-toggle:hover {
-  background-color: #0066cc;
-  color: white;
-}
-
-.abstract-content {
-  display: none;
-  margin-top: 10px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-left: 3px solid #0066cc;
-  line-height: 1.6;
-  font-size: 0.95em;
-}
-
-.works-section {
-  margin-bottom: 30px;
-}
-
-.works-section h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-</style>
-
-<script>
-function toggleAbstract(id) {
-  const abstract = document.getElementById(id);
-  if (abstract.style.display === 'none' || abstract.style.display === '') {
-    abstract.style.display = 'block';
-  } else {
-    abstract.style.display = 'none';
-  }
-}
-</script>
-
-    <section id="works-in-progress" class="works-section">
-      <h2>Works in Progress</h2>
-      <ul class="publication-list">
-        <li class="publication-item">The Anatomy of Religious Infrastructure in Authoritarian Regimes (With Gordon Arsenoff, Huseyin Emre Ceyhun, Amaney Jamal, and Elizabeth R. Nugent)</li>
-        <li class="publication-item">Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj (With Shourya Sen)</li>
-        <li class="publication-item">Cross-Border Militancy and Postcolonial Development: FLN Militancy and Development in Tunisia</li>
-        <li class="publication-item">The Long-Term Effects of Colonial-Era Tribal Rebellion: Evidence from the High Atlas</li>
-        <li class="publication-item">Competing at the Root: How Local-Level Associational Competition Fuels Politics in Hybrid Regimes (With H.E. Ceyhun)</li>
+      <ul class="works-list">
+        <li>Military Recruitment and Subsequent Mobilization: Evidence from Algeria and the Raj (With Shourya Sen)</li>
+        <li>Ideology and Shifts in State Territory: The Case of High Nasserism and the United Arab Republic</li>
+        <li>Internationalization and Contentious Politics: Late Colonial Mobilization and International Diplomacy</li>
       </ul>
     </section>
   </main>
+
+  <footer>
+    <div class="footer-text">&copy; 2025 Hani F. Abdel-Warith</div>
+  </footer>
 
   <script>
     function toggleAbstract(id) {
       const abstract = document.getElementById(id);
       const toggle = document.querySelector(`[onclick="toggleAbstract('${id}')"]`);
-      
+
       if (abstract.classList.contains('show')) {
         abstract.classList.remove('show');
         toggle.textContent = 'abstract';
       } else {
         abstract.classList.add('show');
-        toggle.textContent = 'hide abstract';
+        toggle.textContent = 'hide';
       }
     }
   </script>
