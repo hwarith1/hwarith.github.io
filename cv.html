@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Crimson Text', 'Libre Baskerville', 'Times New Roman', serif;
       line-height: 1.8;
@@ -19,13 +19,11 @@
       font-size: 17px;
       font-weight: 400;
     }
-
     header {
       border-bottom: 1px solid #e8e8e8;
       padding: 25px 0;
       background: #ffffff;
     }
-
     .header-container {
       max-width: 800px;
       margin: 0 auto;
@@ -34,7 +32,6 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .site-title {
       font-size: 1.4rem;
       font-weight: 600;
@@ -42,13 +39,11 @@
       text-decoration: none;
       letter-spacing: -0.3px;
     }
-
     nav ul {
       display: flex;
       list-style: none;
       gap: 35px;
     }
-
     nav a {
       color: #666666;
       text-decoration: none;
@@ -57,23 +52,23 @@
       transition: color 0.2s ease;
       text-transform: lowercase;
     }
-
     nav a:hover,
     nav a.active {
       color: #1a1a1a;
     }
-
+    nav a.active {
+      border-bottom: 1px solid #1a1a1a;
+      padding-bottom: 2px;
+    }
     .main-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 60px 40px;
     }
-
     .cv-section {
       text-align: center;
       animation: fadeIn 0.6s ease-out;
     }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -84,7 +79,6 @@
         transform: translateY(0);
       }
     }
-
     .cv-section h1 {
       font-size: 2.8rem;
       font-weight: 300;
@@ -93,7 +87,6 @@
       line-height: 1.2;
       letter-spacing: -1px;
     }
-
     .cv-section .subtitle {
       font-size: 16px;
       color: #666666;
@@ -102,7 +95,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .cv-description {
       font-size: 17px;
       color: #333333;
@@ -113,11 +105,9 @@
       text-align: justify;
       hyphens: auto;
     }
-
     .download-section {
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
-
     .download-btn {
       display: inline-block;
       color: #666666;
@@ -130,17 +120,20 @@
       border-radius: 2px;
       background: #ffffff;
     }
-
     .download-btn:hover {
       color: #1a1a1a;
       border-color: #1a1a1a;
     }
-
     .download-btn:focus {
       outline: 2px solid #1a1a1a;
       outline-offset: 2px;
     }
-
+    .cv-image {
+      max-width: 400px;
+      margin: 0 auto 50px;
+      border: 1px solid #e8e8e8;
+      display: block;
+    }
     .last-updated {
       font-size: 15px;
       color: #666666;
@@ -148,70 +141,63 @@
       border-top: 1px solid #e8e8e8;
       padding-top: 30px;
       margin-top: 50px;
+      text-align: center;
     }
-
     @media (max-width: 768px) {
       .header-container {
         padding: 0 25px;
         flex-direction: column;
         gap: 20px;
       }
-
       nav ul {
         gap: 25px;
       }
-
       .main-container {
         padding: 40px 25px;
       }
-
       .cv-section h1 {
         font-size: 2.2rem;
       }
-
       .cv-description {
         text-align: left;
       }
+      .cv-image {
+        max-width: 100%;
+      }
     }
-
     @media (max-width: 480px) {
       .header-container {
         padding: 0 20px;
       }
-
       nav ul {
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
       }
-
       .main-container {
         padding: 30px 20px;
       }
-
       .cv-section h1 {
         font-size: 1.9rem;
       }
-
       .site-title {
         font-size: 1.2rem;
       }
     }
-
     ::selection {
       background: #f0f0f0;
       color: #1a1a1a;
     }
-
     @media print {
       header {
         border-bottom: 2px solid #000;
       }
-
       nav {
         display: none;
       }
-
+      .cv-image {
+        display: none;
+      }
       .last-updated {
         border-top: 1px solid #000;
       }
@@ -225,16 +211,16 @@
       <nav>
         <ul>
           <li><a href="index.html">about</a></li>
-          <li><a href="research.html" class="active">research</a></li>
+          <li><a href="research.html">research</a></li>
           <li><a href="teaching.html">teaching</a></li>
-          <li><a href="afterempire.html">After Empire Blog</a></li>
-          <li><a href="cv.html">cv</a></li>
+          <li><a href="blog.html">blog</a></li>
+          <li><a href="cv.html" class="active">cv</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
- <main class="main-container">
+  <main class="main-container">
     <section class="cv-section">
       <h1>Curriculum Vitae</h1>
       <div class="download-section">
@@ -242,11 +228,9 @@
           Download my CV (PDF) here
         </a>
       </div>
+      <img src="BourguibaJFK.jpg" alt="Historical photograph" class="cv-image">
     </section>
-</main>
-
-      <p class="last-updated">Last updated: July 2026</p>
-    </section>
+    <p class="last-updated">Last updated: July 2026</p>
   </main>
 </body>
 </html>
