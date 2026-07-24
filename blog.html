@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +14,7 @@
     :root {
       --ink: #1a1a1a;
       --muted: #6b6b6b;
-      --faint: #9a9a9a;
       --hairline: #e8e8e8;
-      --wash: #faf9f7;
     }
     body {
       font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond', 'Times New Roman', serif;
@@ -71,46 +70,41 @@
       margin: 0 auto;
       padding: 60px 40px;
       animation: fadeIn 0.6s ease-out;
+      text-align: center;
     }
     h1 {
       font-size: 2.8rem;
       font-weight: 300;
       color: var(--ink);
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       letter-spacing: -1px;
     }
-    .blog-list {
-      list-style: none;
-    }
-    .blog-post {
-      background: var(--wash);
-      padding: 32px;
-      margin-bottom: 30px;
-      border: 1px solid var(--hairline);
-      transition: all 0.25s ease;
-    }
-    .blog-post:hover {
-      border-color: #8b6f47;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      transform: translateY(-2px);
-    }
-    .post-title {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .post-meta {
-      font-size: 14px;
-      color: var(--faint);
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-    .post-excerpt {
-      font-size: 17px;
+    .blog-text {
+      font-size: 18px;
       color: #333333;
+      margin-bottom: 50px;
       line-height: 1.8;
+    }
+    .blog-link {
+      display: inline-block;
+      font-size: 16px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 3px;
+      transition: all 0.2s ease;
+      margin-bottom: 60px;
+    }
+    .blog-link:hover {
+      border-bottom-color: var(--ink);
+      color: #8b6f47;
+    }
+    .blog-image {
+      max-width: 100%;
+      height: auto;
+      max-height: 500px;
+      border: 1px solid var(--hairline);
+      display: inline-block;
     }
     footer {
       border-top: 1px solid var(--hairline);
@@ -130,10 +124,6 @@
       outline: 2px solid var(--ink);
       outline-offset: 2px;
     }
-    ::selection {
-      background: #f0ede8;
-      color: var(--ink);
-    }
     @media (max-width: 768px) {
       .header-container {
         padding: 0 25px;
@@ -150,6 +140,7 @@
       .main-container { padding: 30px 20px; }
       h1 { font-size: 1.9rem; }
       .site-title { font-size: 1.2rem; }
+      .blog-text { font-size: 16px; }
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,15 +166,9 @@
   <main class="main-container">
     <h1>After Empire Blog</h1>
 
-    <ul class="blog-list">
-      <li class="blog-post">
-        <h2 class="post-title">Is the Middle East Really Exceptional?</h2>
-        <div class="post-meta">April 2026</div>
-        <p class="post-excerpt">
-          On Said's <em>Orientalism</em>, the Ottoman Empire, and why I think we should study the postcolonial world more comparatively and holistically, rather than cordoning off regions.
-        </p>
-      </li>
-    </ul>
+    <p class="blog-text">You can read my blog <a href="blog/mena-exceptionalism.html" class="blog-link">here</a></p>
+
+    <img src="TahaHussein.jpg" alt="Taha Hussein" class="blog-image">
   </main>
 
   <footer>
