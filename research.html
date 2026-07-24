@@ -169,8 +169,8 @@
     /* ---- Image Gallery ---- */
     .image-gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
       margin: 40px 0;
     }
     .gallery-item {
@@ -230,6 +230,22 @@
       margin-left: 8px;
     }
     .abstract-toggle:hover {
+      background: var(--ink);
+      color: #ffffff;
+    }
+    .doi-link {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+      padding: 4px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-left: 8px;
+      text-decoration: none;
+    }
+    .doi-link:hover {
       background: var(--ink);
       color: #ffffff;
     }
@@ -303,7 +319,7 @@
       nav ul { gap: 25px; }
       .main-container { padding: 40px 25px; }
       h1 { font-size: 2.2rem; }
-      .image-gallery { grid-template-columns: repeat(2, 1fr); }
+      .image-gallery { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .header-container { padding: 0 20px; }
@@ -328,7 +344,7 @@
           <li><a href="index.html">about</a></li>
           <li><a href="research.html" class="active">research</a></li>
           <li><a href="teaching.html">teaching</a></li>
-          <li><a href="blog.html">After Empire</a></li>
+          <li><a href="blog.html">blog</a></li>
           <li><a href="cv.html">cv</a></li>
         </ul>
       </nav>
@@ -354,6 +370,8 @@
           <p>This dissertation tests the proposition that postcolonial governments in the Middle East and North Africa (MENA) and in Africa and Asia more broadly unevenly supplied secondary schooling to facilitate autocratic governance. Such regimes concentrated human capital, upward mobility, and social status in pro-regime and neutral areas. Conversely, autocracies withheld schools from historically oppositional areas, relatively undersupplying districts with histories of political rebellion against the incumbent regime.</p>
 
           <p>I introduce and empirically investigate the process of <strong>'civic licensing'</strong>, a macro-level theory connecting anti-regime threats at independence to the allocation of secondary schools under autocracy and downstream political cleavages thereafter. Civic licenses are state-distributed credentials that serve as a prerequisite for access to a meritocratic stratum with associated club benefits and status identity. In postcolonial states, I posit that secondary education functioned as a civic license, as government policy guaranteed employment to college graduates. The politicized provision of secondary education under postcolonial autocracy leaves behind spatially divergent status differentials, political identities, and a political cleavage structure across provisioned and punished zones.</p>
+
+          <p>I reveal a robust negative association between anti-regime threat at independence and educational provision thereafter. Testing individual-level implications, I show that educational provision patterns at independence drive variation in attitudes, electoral behavior, and protest participation in the postcolonial Maghreb. The study highlights scarce education supplied at independence as an understudied driver of political identity and status formation in postcolonial states.</p>
         </div>
 
         <div class="data-highlights">
@@ -370,20 +388,20 @@
         <div class="image-gallery">
           <div class="gallery-item">
             <div class="gallery-placeholder">[Figure 1]</div>
-            <div class="gallery-caption">Colonial-era school distribution and political movements</div>
+            <div class="gallery-caption">Theoretical framework: Civic licensing mechanism and downstream implications</div>
           </div>
           <div class="gallery-item">
             <div class="gallery-placeholder">[Figure 2]</div>
-            <div class="gallery-caption">Postcolonial school supply: provisioned vs. undersupplied regions</div>
+            <div class="gallery-caption">Anti-regime rebellion zones in Tunisia, 1950–1956</div>
           </div>
           <div class="gallery-item">
             <div class="gallery-placeholder">[Figure 3]</div>
-            <div class="gallery-caption">Electoral and protest patterns in the postcolonial Maghreb</div>
+            <div class="gallery-caption">Tunisia secondary school distribution under Bourguiba (per capita) by region</div>
           </div>
-        </div>
-
-        <div class="diss-abstract-text" style="margin-top: 30px; font-size: 16px; color: var(--faint);">
-          <p>I reveal a robust negative association between anti-regime threat at independence and educational provision thereafter. Testing individual-level implications, I show that educational provision patterns at independence drive variation in attitudes, electoral behavior, and protest participation in the postcolonial Maghreb. The study highlights scarce education supplied at independence as an understudied driver of political identity and status formation in postcolonial states.</p>
+          <div class="gallery-item">
+            <div class="gallery-placeholder">[Figure 4]</div>
+            <div class="gallery-caption">Effects of civic licensing on subjective social status</div>
+          </div>
         </div>
       </div>
     </section>
@@ -397,7 +415,9 @@
           Secularization in the Minaret's Shadow: Group Identity and Religious Identity in the Contemporary MENA Region
           <span class="abstract-toggle" onclick="toggleAbstract('abstract-minaret')">abstract</span>
         </div>
-        <div class="pub-details">Hüseyin E. Ceyhun and Hani Abdel-Warith • Mediterranean Politics • 2025</div>
+        <div class="pub-details">Hüseyin E. Ceyhun and Hani Abdel-Warith • Mediterranean Politics • 2025
+          <a href="https://doi.org/10.1080/13629395.2025.2503586" target="_blank" rel="noopener" class="doi-link">doi</a>
+        </div>
         <div id="abstract-minaret" class="abstract-content">
           We study the relationship between political polarization along the Islamist-Secularist cleavage and religiosity in the contemporary MENA region. We find that political polarization decreases religiosity and that this relationship is robust to various measures of polarization and estimation models. These effects are driven by partisanship: while Secularists have become more distanced from religion, their Islamist counterparts have become more religious. Probing alternate mechanisms, we find that polarizing consequences are not driven by age effects, parental pressures, or social media use. We argue that our results reflect social identity dynamics and specifically the increased salience and polarization of 'Secularist' and 'Islamist' identities. This study shows how political polarization can drive social change in developing societies, initiating a secularization process driven by identity conflict rather than modernization.
         </div>
@@ -419,8 +439,14 @@
       </div>
 
       <div class="pub-item">
-        <div class="pub-title">Anatomy of Religious Infrastructure in Authoritarian Regimes</div>
+        <div class="pub-title">
+          Anatomy of Religious Infrastructure in Authoritarian Regimes
+          <span class="abstract-toggle" onclick="toggleAbstract('abstract-mosque')">abstract</span>
+        </div>
         <div class="pub-details">Gordon Arsenoff, Amaney Jamal, Elizabeth Nugent, Hüseyin E. Ceyhun, and Hani Abdel-Warith</div>
+        <div id="abstract-mosque" class="abstract-content">
+          A robust literature in political science suggests that places of worship can serve as sites of opposition mobilization in authoritarian states. At the same time, regimes have the repressive advantage over opposition, and can respond to this potential challenge by regulating places of worship. We build on the implications of this important, largely case-based scholarship and conduct systematic empirical tests in pursuit of evidence of regime control of places of worship in authoritarian regimes. Specifically, we examine the geographic location of mosques and how these placements might serve regime interests. We first examine the correlates over 250,000 mosque geolocations from 13 Middle Eastern countries and demonstrate that "supply and demand" (i.e., population-based) explanations do not account for the placement of mosques. We then analyze fine-grained records of mosque construction under the incumbent regimes in Turkey and Egypt. The regimes have different relationships to religion; the Turkish regime legitimizes itself through an affiliation with religion, while Egypt's more secular regime is severely threatened by its Islamist opposition. We find that Turkey's regime builds new mosques to bolster its electoral advantages by rewarding stronghold areas, suggesting it seeks to win additional support with this construction, while the Egyptian regime builds new mosques in historically Islamist regions in order to crowd out its oppositional rivals. Our results suggest that the spatial geography of religious infrastructure is a meaningful indicator of regime strategies of political control and reveals this logic in otherwise hard-to-access regimes.
+        </div>
       </div>
     </section>
 
