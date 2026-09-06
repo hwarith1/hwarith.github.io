@@ -1,10 +1,15 @@
 
+
+Blog · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Sipping Mango Juice on Substack – Hani F. Abdel-Warith</title>
+  <title>Blog – Hani F. Abdel-Warith</title>
+  <link rel="alternate" type="application/rss+xml"
+        title="Sipping Mango Juice"
+        href="https://hanifabdelwarith.substack.com/feed" />
   <style>
     * {
       margin: 0;
@@ -15,6 +20,7 @@
       --ink: #1a1a1a;
       --muted: #6b6b6b;
       --hairline: #e8e8e8;
+      --accent: #8b6f47;
     }
     body {
       font-family: 'EB Garamond', 'Adobe Garamond Pro', 'Garamond', 'Times New Roman', serif;
@@ -82,22 +88,55 @@
     .blog-text {
       font-size: 18px;
       color: #333333;
-      margin-bottom: 50px;
       line-height: 1.8;
     }
-    .blog-link {
-      display: inline-block;
-      font-size: 16px;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--hairline);
-      padding-bottom: 3px;
-      transition: all 0.2s ease;
+    /* --- latest post block --- */
+    .latest {
       margin-bottom: 60px;
     }
-    .blog-link:hover {
-      border-bottom-color: var(--ink);
-      color: #8b6f47;
+    .latest-label {
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .latest-title {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.4;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 4px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      max-width: 34ch;
+    }
+    .latest-title:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .latest-date {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 14px;
+      min-height: 1.4em;
+    }
+    .archive-link {
+      display: inline-block;
+      margin-top: 26px;
+      font-size: 15px;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .archive-link:hover {
+      color: var(--ink);
+      border-bottom-color: var(--hairline);
     }
     .blog-image {
       max-width: 100%;
@@ -133,6 +172,7 @@
       nav ul { gap: 25px; }
       .main-container { padding: 40px 25px; }
       h1 { font-size: 2.2rem; }
+      .latest-title { font-size: 1.4rem; }
     }
     @media (max-width: 480px) {
       .header-container { padding: 0 20px; }
@@ -141,6 +181,7 @@
       h1 { font-size: 1.9rem; }
       .site-title { font-size: 1.2rem; }
       .blog-text { font-size: 16px; }
+      .latest-title { font-size: 1.25rem; }
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,17 +203,82 @@
       </nav>
     </div>
   </header>
-
+ 
   <main class="main-container">
     <h1>Empire State of Mind Blog</h1>
-
-    <p class="blog-text">You can read my latest blog post here <a href="https://substack.com/home/post/p-210122447" class="blog-link">here</a></p>
-
+ 
+    <!-- The values below are the fallback: if the feed can't be reached,
+         the page still shows a real, working link. -->
+    <div class="latest">
+      <p class="latest-label">Latest post</p>
+      <a class="latest-title"
+         id="latest-title"
+         href="https://hanifabdelwarith.substack.com/p/remembering-2011">Remembering 2011</a>
+      <p class="latest-date" id="latest-date"></p>
+      <a class="archive-link" href="https://hanifabdelwarith.substack.com/archive">Read the archive on Substack &rarr;</a>
+    </div>
+ 
     <img src="TahaHussein.jpg" alt="Taha Hussein" class="blog-image">
   </main>
-
+ 
   <footer>
     <div class="footer-text">&copy; 2025 Hani F. Abdel-Warith</div>
   </footer>
+ 
+  <script>
+  /* Pull the newest post from the Substack RSS feed.
+     Substack doesn't send CORS headers, so the feed goes through a public
+     read-only proxy. If anything fails, the hardcoded link above stays put. */
+  (function () {
+    var FEED = 'https://hanifabdelwarith.substack.com/feed';
+    var PROXIES = [
+      'https://api.allorigins.win/raw?url=',
+      'https://corsproxy.io/?url='
+    ];
+ 
+    var titleEl = document.getElementById('latest-title');
+    var dateEl  = document.getElementById('latest-date');
+ 
+    function render(xmlText) {
+      var doc  = new DOMParser().parseFromString(xmlText, 'application/xml');
+      if (doc.querySelector('parsererror')) throw new Error('bad xml');
+      var item = doc.querySelector('channel > item');
+      if (!item) throw new Error('no items');
+ 
+      var title = item.querySelector('title');
+      var link  = item.querySelector('link');
+      var date  = item.querySelector('pubDate');
+      if (!title || !link) throw new Error('incomplete item');
+ 
+      titleEl.textContent = title.textContent.trim();
+      titleEl.href = link.textContent.trim();
+ 
+      if (date) {
+        var d = new Date(date.textContent);
+        if (!isNaN(d)) {
+          dateEl.textContent = d.toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          });
+        }
+      }
+    }
+ 
+    function attempt(i) {
+      if (i >= PROXIES.length) return;           // give up, keep the fallback
+      fetch(PROXIES[i] + encodeURIComponent(FEED), { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.text();
+        })
+        .then(render)
+        .catch(function () { attempt(i + 1); }); // try the next proxy
+    }
+ 
+    attempt(0);
+  })();
+  </script>
 </body>
 </html>
+ 
+
+
