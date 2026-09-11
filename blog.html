@@ -1,6 +1,3 @@
-
-
-Blog · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +5,7 @@ Blog · HTML
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog – Hani F. Abdel-Warith</title>
   <link rel="alternate" type="application/rss+xml"
-        title="Sipping Mango Juice"
+        title="Empire State of Mind"
         href="https://hanifabdelwarith.substack.com/feed" />
   <style>
     * {
@@ -119,10 +116,16 @@ Blog · HTML
       color: var(--accent);
       border-bottom-color: var(--accent);
     }
+    .latest-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 12px;
+    }
     .latest-date {
       font-size: 14px;
       color: var(--muted);
-      margin-top: 14px;
+      margin-top: 10px;
       min-height: 1.4em;
     }
     .archive-link {
@@ -162,6 +165,10 @@ Blog · HTML
     a:focus {
       outline: 2px solid var(--ink);
       outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .main-container { animation: none; }
+      * { transition: none !important; }
     }
     @media (max-width: 768px) {
       .header-container {
@@ -203,56 +210,72 @@ Blog · HTML
       </nav>
     </div>
   </header>
- 
+
   <main class="main-container">
     <h1>Empire State of Mind Blog</h1>
- 
+
     <!-- The values below are the fallback: if the feed can't be reached,
-         the page still shows a real, working link. -->
+         the page still shows a real, working link. Update them whenever a
+         new post goes up, so the page is never stale even without JS. -->
     <div class="latest">
       <p class="latest-label">Latest post</p>
       <a class="latest-title"
          id="latest-title"
-         href="https://hanifabdelwarith.substack.com/p/remembering-2011">Remembering 2011</a>
-      <p class="latest-date" id="latest-date"></p>
+         href="https://hanifabdelwarith.substack.com/p/a-forgotten-massacre-on-the-island">A Forgotten Massacre on the Island of the Gods</a>
+      <p class="latest-subtitle" id="latest-subtitle">Towards Ethical Tourism on Bali</p>
+      <p class="latest-date" id="latest-date">September 11, 2026</p>
       <a class="archive-link" href="https://hanifabdelwarith.substack.com/archive">Read the archive on Substack &rarr;</a>
     </div>
- 
+
     <img src="TahaHussein.jpg" alt="Taha Hussein" class="blog-image">
   </main>
- 
+
   <footer>
-    <div class="footer-text">&copy; 2025 Hani F. Abdel-Warith</div>
+    <div class="footer-text">&copy; 2026 Hani F. Abdel-Warith</div>
   </footer>
- 
+
   <script>
   /* Pull the newest post from the Substack RSS feed.
      Substack doesn't send CORS headers, so the feed goes through a public
-     read-only proxy. If anything fails, the hardcoded link above stays put. */
+     read-only proxy. If anything fails, the hardcoded values above stay put. */
   (function () {
     var FEED = 'https://hanifabdelwarith.substack.com/feed';
     var PROXIES = [
       'https://api.allorigins.win/raw?url=',
       'https://corsproxy.io/?url='
     ];
- 
-    var titleEl = document.getElementById('latest-title');
-    var dateEl  = document.getElementById('latest-date');
- 
+
+    var titleEl    = document.getElementById('latest-title');
+    var subtitleEl = document.getElementById('latest-subtitle');
+    var dateEl     = document.getElementById('latest-date');
+
     function render(xmlText) {
       var doc  = new DOMParser().parseFromString(xmlText, 'application/xml');
       if (doc.querySelector('parsererror')) throw new Error('bad xml');
       var item = doc.querySelector('channel > item');
       if (!item) throw new Error('no items');
- 
+
       var title = item.querySelector('title');
       var link  = item.querySelector('link');
       var date  = item.querySelector('pubDate');
       if (!title || !link) throw new Error('incomplete item');
- 
+
       titleEl.textContent = title.textContent.trim();
-      titleEl.href = link.textContent.trim();
- 
+      /* Strip Substack's share/tracking query string so the link stays clean. */
+      titleEl.href = link.textContent.trim().split('?')[0];
+
+      /* Substack puts the deck in <description>; show it when there is one,
+         otherwise leave whatever is already on the page. */
+      var desc = item.querySelector('description');
+      if (subtitleEl && desc) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = desc.textContent;
+        var text = (tmp.textContent || '').trim().replace(/\s+/g, ' ');
+        if (text) subtitleEl.textContent = text.length > 140
+          ? text.slice(0, 139).replace(/\s+\S*$/, '') + '…'
+          : text;
+      }
+
       if (date) {
         var d = new Date(date.textContent);
         if (!isNaN(d)) {
@@ -262,7 +285,7 @@ Blog · HTML
         }
       }
     }
- 
+
     function attempt(i) {
       if (i >= PROXIES.length) return;           // give up, keep the fallback
       fetch(PROXIES[i] + encodeURIComponent(FEED), { cache: 'no-store' })
@@ -273,12 +296,9 @@ Blog · HTML
         .then(render)
         .catch(function () { attempt(i + 1); }); // try the next proxy
     }
- 
+
     attempt(0);
   })();
   </script>
 </body>
 </html>
- 
-
-
